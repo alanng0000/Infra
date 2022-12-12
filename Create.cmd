@@ -6,4 +6,4 @@ SET DevCmdPath="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxil
 
 
 
-%comspec% /c "%DevCmdPath%" "& MakeAll.cmd"
+%comspec% /c "%DevCmdPath%" "& CreateAll.cmd"

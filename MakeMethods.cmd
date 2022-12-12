@@ -5,7 +5,7 @@ goto :eof
 
 
 
-:MakeModule
+:CreateModule
 SETLOCAL
 SET Module=%~1
 SET Fold=%~2
@@ -42,7 +42,7 @@ cd "%Fold%"
 
 
 
-CALL :MakeFold "%OutFoldPath%\%Module%"
+CALL :CreateFold "%OutFoldPath%\%Module%"
 
 
 
@@ -64,12 +64,12 @@ goto :eof
 
 
 
-:MakeFold
+:CreateFold
 SETLOCAL
-SET MakeFoldPath=%~1
+SET CreateFoldPath=%~1
 
 
-if not exist "%MakeFoldPath%" mkdir "%MakeFoldPath%"
+if not exist "%CreateFoldPath%" mkdir "%CreateFoldPath%"
 
 
 ENDLOCAL & SET _result=
