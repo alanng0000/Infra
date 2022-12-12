@@ -50,23 +50,6 @@ CALL %MethodsFilePath% :MakeModule "%Module%" "%Module%" "%OutFold%\Infra.lib %O
 
 
 
-REM SET Module=Infra.Test
-
-
-REM CALL %MethodsFilePath% :MakeModule "%Module%" "%Module%" "%OutFold%\Infra.lib %OutFold%\Infra.Form.Infra.lib %OutFold%\Infra.Form.Windows.lib"
-
-
-
-
-
-REM SET Module=Infra.Test.Exe
-
-
-REM CALL %MethodsFilePath% :MakeModule "%Module%" "%Module%" "%OutFold%\Infra.Test.lib %OutFold%\Infra.lib %OutFold%\Infra.Form.Infra.lib %OutFold%\Infra.Form.Windows.lib" exe
-
-
-
-
 
 goto :eof
 
