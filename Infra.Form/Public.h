@@ -17,7 +17,7 @@
 
 
 
-ObjectApi(Infra_Form, Frame)
+InfraObjectApi(Infra_Form, Frame)
 
 
 
@@ -102,7 +102,7 @@ Bool Frame_Close(Object this);
 
 
 
-ObjectApi(Infra_Form, Time)
+InfraObjectApi(Infra_Form, Time)
 
 
 
@@ -145,7 +145,7 @@ Bool Time_Date(Object this, Object date);
 
 
 
-ObjectApi(Infra_Form, Interval)
+InfraObjectApi(Infra_Form, Interval)
 
 
 
@@ -208,7 +208,7 @@ Bool Interval_Reset(Object this);
 
 
 
-ObjectApi(Infra_Form, Date)
+InfraObjectApi(Infra_Form, Date)
 
 
 
@@ -301,7 +301,7 @@ Bool Date_Time(Object this, Object time);
 
 
 
-ObjectApi(Infra_Form, Storage)
+InfraObjectApi(Infra_Form, Storage)
 
 
 
