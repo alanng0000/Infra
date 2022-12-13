@@ -134,8 +134,6 @@ Bool c##_Delete(Object o)\
 
 
 
-
-
 Infra_Api
 Int New(Int size);
 
