@@ -18,26 +18,7 @@
 
 
 
-Infra_Form_Infra_Api
-Object Rect_New();
-
-
-
-
-Infra_Form_Infra_Api
-Bool Rect_Delete(Object o);
-
-
-
-
-Infra_Form_Infra_Api
-Bool Rect_Init(Object this);
-
-
-
-
-Infra_Form_Infra_Api
-Bool Rect_Final(Object this);
+ObjectApi(Infra_Form_Infra, Rect)
 
 
 

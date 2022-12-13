@@ -86,26 +86,26 @@ typedef unsigned int Int32;
 
 
 
-#define ObjectApi(api, class) api##_Api\
-Object class##_New();\
+#define ObjectApi(a, c) a##_Api \
+Object c##_New();\
 \
-api##_Api\
-Bool class##_Delete(Object o);\
+a##_Api \
+Bool c##_Delete(Object o);\
 \
-api##_Api\
-Bool class##_Init(Object this);\
+a##_Api \
+Bool c##_Init(Object this);\
 \
-api##_Api\
-Bool class##_Final(Object this);\
-\
+a##_Api \
+Bool c##_Final(Object this);\
 
 
 
 
 
-#define ClassNew(class) Object class##_New()\
+
+#define ClassNew(c) Object c##_New()\
 {\
-    Int size = sizeof(class);\
+    Int size = sizeof(c);\
 \
 \
     Int o = New(size);\
@@ -118,7 +118,7 @@ Bool class##_Final(Object this);\
 }\
 \
 \
-Bool class##_Delete(Object o)\
+Bool c##_Delete(Object o)\
 {\
     Int k = o;\
 \
@@ -128,7 +128,7 @@ Bool class##_Delete(Object o)\
 \
     return true;\
 }\
-\
+
 
 
 
