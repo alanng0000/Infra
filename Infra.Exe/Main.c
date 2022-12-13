@@ -356,6 +356,14 @@ Bool ControlHandle(Object frame, Int key, Int value)
 
 
 
+    if (value == 0)
+    {
+        return true;
+    }
+
+
+
+
     Int l = 100;
 
 
