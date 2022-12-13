@@ -86,16 +86,16 @@ typedef unsigned int Int32;
 
 
 
-#define ObjectApi(a, c) a##_Api \
+#define ObjectApi(a, c) a##_Api\
 Object c##_New();\
 \
-a##_Api \
+a##_Api\
 Bool c##_Delete(Object o);\
 \
-a##_Api \
+a##_Api\
 Bool c##_Init(Object this);\
 \
-a##_Api \
+a##_Api\
 Bool c##_Final(Object this);\
 
 
