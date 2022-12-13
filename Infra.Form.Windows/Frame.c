@@ -218,6 +218,11 @@ Bool Frame_InitWindow(Frame* this)
 
 
 
+    this->Hdc = Windows_GetDC(this->Hwnd);
+
+
+
+
     LONG_PTR o = (LONG_PTR)this;
 
 
@@ -312,14 +317,17 @@ Bool Frame_InitWindowStyle(Frame* this)
 }
 
 
+
+
 Bool Frame_InitWindowSize(Frame* this)
 {
-    int w = Windows_GetDeviceCaps(HORZRES);
+    int w = Windows_GetDeviceCaps(this->Hdc, HORZRES);
 
 
 
-    int h = Windows_GetDeviceCaps(VERTRES);
-    
+    int h = Windows_GetDeviceCaps(this->Hdc, VERTRES);
+
+
 
 
     HWND hwnd = this->Hwnd;
@@ -494,9 +502,6 @@ Bool Frame_InitBitmap(Frame* this)
     Frame_InitBitmapBuffer(this);
 
 
-
-
-    this->Hdc = Windows_GetDC(this->Hwnd);
 
 
     HDC srcDc = Windows_CreateCompatibleDC(this->Hdc);
