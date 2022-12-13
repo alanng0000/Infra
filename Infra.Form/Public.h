@@ -388,13 +388,13 @@ Bool Storage_Close(Object this);
 
 
 Infra_Form_Api
-Bool Storage_Read(Object this, Object data);
+Int Storage_Read(Object this, Object data);
 
 
 
 
 Infra_Form_Api
-Bool Storage_Write(Object this, Object data);
+Int Storage_Write(Object this, Object data);
 
 
 

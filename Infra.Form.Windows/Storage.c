@@ -523,7 +523,7 @@ Bool Storage_Flush(Object this)
 
 
 
-Bool Storage_Read(Object this, Object data)
+Int Storage_Read(Object this, Object data)
 {
     Storage* m = CastPointer(this);
 
@@ -557,19 +557,19 @@ Bool Storage_Read(Object this, Object data)
 
     if (!b)
     {
-        return false;
+        return 1;
     }
 
 
 
-    return true;
+    return 0;
 }
 
 
 
 
 
-Bool Storage_Write(Object this, Object data)
+Int Storage_Write(Object this, Object data)
 {
     Storage* m = CastPointer(this);
 
@@ -602,7 +602,7 @@ Bool Storage_Write(Object this, Object data)
 
     if (!b)
     {
-        return false;
+        return 1;
     }
 
 
@@ -614,7 +614,7 @@ Bool Storage_Write(Object this, Object data)
 
 
 
-    return true;
+    return 0;
 }
 
 
