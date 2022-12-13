@@ -3034,31 +3034,31 @@ int main(int argc, char* argv[])
 
 
 
-    //ExecuteFormat();
+    ExecuteFormat();
 
 
 
 
 
-    // DemoExecute();
+    DemoExecute();
 
 
 
 
 
-    // ListExecute();
+    ListExecute();
 
 
 
 
 
-    // TimeExecute();
+    TimeExecute();
 
 
 
 
 
-    // StorageExecute();
+    StorageExecute();
 
 
 
@@ -3077,7 +3077,7 @@ int main(int argc, char* argv[])
 
 
 
-    SpeedDemoExecute();
+    //SpeedDemoExecute();
 
 
 
