@@ -86,17 +86,35 @@ typedef unsigned int Int32;
 
 
 
-#define ObjectApi(a, c) a##_Api \
+
+#define InfraObjectApi(m, c) m##_Api \
 Object c##_New();\
 \
-a##_Api \
+m##_Api \
 Bool c##_Delete(Object o);\
 \
-a##_Api \
+m##_Api \
 Bool c##_Init(Object this);\
 \
-a##_Api \
+m##_Api \
 Bool c##_Final(Object this);\
+
+
+
+
+
+
+#define ObjectApi(m, c) m##_Api \
+Object m##_##c##_New();\
+\
+m##_Api \
+Bool m##_##c##_Delete(Object o);\
+\
+m##_Api \
+Bool m##_##c##_Init(Object this);\
+\
+m##_Api \
+Bool m##_##c##_Final(Object this);\
 
 
 
@@ -148,7 +166,7 @@ Bool c##_Delete(Object o)\
 }\
 \
 \
-Bool c##_Delete(Object o)\
+Bool m##_##c##_Delete(Object o)\
 {\
     Int k = o;\
 \
