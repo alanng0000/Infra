@@ -50,26 +50,8 @@ Bool Rect_SetSize(Object this, Object value);
 
 
 
-Infra_Form_Infra_Api
-Object Pos_New();
+ObjectApi(Infra_Form_Infra, Pos)
 
-
-
-
-Infra_Form_Infra_Api
-Bool Pos_Delete(Object o);
-
-
-
-
-Infra_Form_Infra_Api
-Bool Pos_Init(Object this);
-
-
-
-
-Infra_Form_Infra_Api
-Bool Pos_Final(Object this);
 
 
 
@@ -99,27 +81,8 @@ Bool Pos_SetUp(Object this, Int value);
 
 
 
+ObjectApi(Infra_Form_Infra, Size)
 
-Infra_Form_Infra_Api
-Object Size_New();
-
-
-
-
-Infra_Form_Infra_Api
-Bool Size_Delete(Object o);
-
-
-
-
-Infra_Form_Infra_Api
-Bool Size_Init(Object this);
-
-
-
-
-Infra_Form_Infra_Api
-Bool Size_Final(Object this);
 
 
 
@@ -149,27 +112,7 @@ Bool Size_SetHeight(Object this, Int value);
 
 
 
-
-Infra_Form_Infra_Api
-Object Data_New();
-
-
-
-
-Infra_Form_Infra_Api
-Bool Data_Delete(Object o);
-
-
-
-
-Infra_Form_Infra_Api
-Bool Data_Init(Object this);
-
-
-
-
-Infra_Form_Infra_Api
-Bool Data_Final(Object this);
+ObjectApi(Infra_Form_Infra, Data)
 
 
 
