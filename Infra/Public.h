@@ -86,16 +86,16 @@ typedef unsigned int Int32;
 
 
 
-#define ObjectApi(api, class) api\
+#define ObjectApi(api, class) api##_Api\
 Object class##_New();\
 \
-api\
+api##_Api\
 Bool class##_Delete(Object o);\
 \
-api\
+api##_Api\
 Bool class##_Init(Object this);\
 \
-api\
+api##_Api\
 Bool class##_Final(Object this);\
 \
 
@@ -179,30 +179,8 @@ Bool Exit(Int code);
 
 
 
+ObjectApi(Infra, String)
 
-Infra_Api
-Object String_New();
-
-
-
-
-
-Infra_Api
-Bool String_Delete(Object o);
-
-
-
-
-
-Infra_Api
-Bool String_Init(Object this);
-
-
-
-
-
-Infra_Api
-Bool String_Final(Object this);
 
 
 
@@ -261,26 +239,8 @@ Bool String_Copy(Object this, Int data, Int index, Int length);
 
 
 
-Infra_Api
-Object List_New();
+ObjectApi(Infra, List)
 
-
-
-
-Infra_Api
-Bool List_Delete(Object o);
-
-
-
-
-Infra_Api
-Bool List_Init(Object this);
-
-
-
-
-Infra_Api
-Bool List_Final(Object this);
 
 
 
@@ -342,26 +302,8 @@ Bool List_Iter(Object this, Object iter);
 
 
 
-Infra_Api
-Object ListIter_New();
+ObjectApi(Infra, ListIter)
 
-
-
-
-Infra_Api
-Bool ListIter_Delete(Object o);
-
-
-
-
-Infra_Api
-Bool ListIter_Init(Object this);
-
-
-
-
-Infra_Api
-Bool ListIter_Final(Object this);
 
 
 
@@ -379,26 +321,9 @@ Object ListIter_Value(Object this);
 
 
 
-Infra_Api
-Object Console_New();
 
+ObjectApi(Infra, Console)
 
-
-
-Infra_Api
-Bool Console_Delete(Object o);
-
-
-
-
-Infra_Api
-Bool Console_Init(Object this);
-
-
-
-
-Infra_Api
-Bool Console_Final(Object this);
 
 
 
@@ -410,27 +335,7 @@ Bool Console_Write(Object this, Object text);
 
 
 
-Infra_Api
-Object Format_New();
-
-
-
-
-Infra_Api
-Bool Format_Delete(Object o);
-
-
-
-
-Infra_Api
-Bool Format_Init(Object this);
-
-
-
-
-
-Infra_Api
-Bool Format_Final(Object this);
+ObjectApi(Infra, Format)
 
 
 
@@ -555,34 +460,7 @@ Bool Format_Result(Object this);
 
 
 
-
-
-Infra_Api
-Object FormatArg_New();
-
-
-
-
-
-Infra_Api
-Bool FormatArg_Delete(Object o);
-
-
-
-
-
-
-
-Infra_Api
-Bool FormatArg_Init(Object this);
-
-
-
-
-
-Infra_Api
-Bool FormatArg_Final(Object this);
-
+ObjectApi(Infra, FormatArg)
 
 
 
@@ -629,28 +507,7 @@ Bool FormatArg_SetValue(Object this, Int value);
 
 
 
-
-
-Infra_Api
-Object Memory_New();
-
-
-
-
-Infra_Api
-Bool Memory_Delete(Object o);
-
-
-
-
-Infra_Api
-Bool Memory_Init(Object this);
-
-
-
-
-Infra_Api
-Bool Memory_Final(Object this);
+ObjectApi(Infra, Memory)
 
 
 
