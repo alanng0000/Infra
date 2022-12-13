@@ -225,7 +225,7 @@ Bool Exit(Int code);
 
 
 
-ObjectApi(Infra, String)
+InfraObjectApi(Infra, String)
 
 
 
@@ -285,7 +285,7 @@ Bool String_Copy(Object this, Int data, Int index, Int length);
 
 
 
-ObjectApi(Infra, List)
+InfraObjectApi(Infra, List)
 
 
 
@@ -348,7 +348,7 @@ Bool List_Iter(Object this, Object iter);
 
 
 
-ObjectApi(Infra, ListIter)
+InfraObjectApi(Infra, ListIter)
 
 
 
@@ -368,7 +368,7 @@ Object ListIter_Value(Object this);
 
 
 
-ObjectApi(Infra, Console)
+InfraObjectApi(Infra, Console)
 
 
 
@@ -381,7 +381,7 @@ Bool Console_Write(Object this, Object text);
 
 
 
-ObjectApi(Infra, Format)
+InfraObjectApi(Infra, Format)
 
 
 
@@ -506,7 +506,7 @@ Bool Format_Result(Object this);
 
 
 
-ObjectApi(Infra, FormatArg)
+InfraObjectApi(Infra, FormatArg)
 
 
 
@@ -553,7 +553,7 @@ Bool FormatArg_SetValue(Object this, Int value);
 
 
 
-ObjectApi(Infra, Memory)
+InfraObjectApi(Infra, Memory)
 
 
 
