@@ -17,15 +17,8 @@
 
 
 
+ObjectApi(Infra_Form, Frame)
 
-Infra_Form_Api
-Object Frame_New();
-
-
-
-
-Infra_Form_Api
-Bool Frame_Delete(Object o);
 
 
 
@@ -39,17 +32,6 @@ Object Frame_GetTitle(Object this);
 Infra_Form_Api
 Bool Frame_SetTitle(Object this, Object value);
 
-
-
-
-Infra_Form_Api
-Bool Frame_Init(Object this);
-
-
-
-
-Infra_Form_Api
-Bool Frame_Final(Object this);
 
 
 
@@ -120,27 +102,8 @@ Bool Frame_Close(Object this);
 
 
 
-Infra_Form_Api
-Object Time_New();
+ObjectApi(Infra_Form, Time)
 
-
-
-
-
-Infra_Form_Api
-Bool Time_Delete(Object o);
-
-
-
-
-Infra_Form_Api
-Bool Time_Init(Object this);
-
-
-
-
-Infra_Form_Api
-Bool Time_Final(Object this);
 
 
 
@@ -182,18 +145,8 @@ Bool Time_Date(Object this, Object date);
 
 
 
-Infra_Form_Api
-Object Interval_New();
+ObjectApi(Infra_Form, Interval)
 
-
-
-Infra_Form_Api
-Bool Interval_Delete(Object o);
-
-
-
-Infra_Form_Api
-Bool Interval_Init(Object this);
 
 
 
@@ -254,26 +207,10 @@ Bool Interval_Reset(Object this);
 
 
 
-Infra_Form_Api
-Object Date_New();
+
+ObjectApi(Infra_Form, Date)
 
 
-
-
-Infra_Form_Api
-Bool Date_Delete(Object o);
-
-
-
-
-Infra_Form_Api
-Bool Date_Init(Object this);
-
-
-
-
-Infra_Form_Api
-Bool Date_Final(Object this);
 
 
 
@@ -363,26 +300,9 @@ Bool Date_Time(Object this, Object time);
 
 
 
-Infra_Form_Api
-Object Storage_New();
 
+ObjectApi(Infra_Form, Storage)
 
-
-
-Infra_Form_Api
-Bool Storage_Delete(Object o);
-
-
-
-
-Infra_Form_Api
-Bool Storage_Init(Object this);
-
-
-
-
-Infra_Form_Api
-Bool Storage_Final(Object this);
 
 
 
