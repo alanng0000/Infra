@@ -40,17 +40,18 @@ CALL %MethodsFilePath% :CreateModule "%Module%" "%Module%" "%OutFold%\Infra.lib 
 
 
 
+
+CALL :CopyHeader
+
+
+
+
+
 SET Module=Infra.Exe
 
 
 CALL %MethodsFilePath% :CreateModule "%Module%" "%Module%" "%OutFold%\Infra.lib %OutFold%\Infra.Form.Infra.lib %OutFold%\Infra.Form.Windows.lib" exe
 
-
-
-
-
-
-CALL :CopyHeader
 
 
 
