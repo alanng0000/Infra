@@ -18,7 +18,7 @@
 
 
 
-ObjectApi(Infra_Form_Infra, Rect)
+InfraObjectApi(Infra_Form_Infra, Rect)
 
 
 
@@ -50,7 +50,7 @@ Bool Rect_SetSize(Object this, Object value);
 
 
 
-ObjectApi(Infra_Form_Infra, Pos)
+InfraObjectApi(Infra_Form_Infra, Pos)
 
 
 
@@ -81,7 +81,7 @@ Bool Pos_SetUp(Object this, Int value);
 
 
 
-ObjectApi(Infra_Form_Infra, Size)
+InfraObjectApi(Infra_Form_Infra, Size)
 
 
 
@@ -112,7 +112,7 @@ Bool Size_SetHeight(Object this, Int value);
 
 
 
-ObjectApi(Infra_Form_Infra, Data)
+InfraObjectApi(Infra_Form_Infra, Data)
 
 
 
