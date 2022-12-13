@@ -3,7 +3,7 @@
 
 
 
-ClassNew(Global)
+InfraClassNew(Global)
 
 
 

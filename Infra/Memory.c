@@ -5,7 +5,7 @@
 
 
 
-ClassNew(Memory)
+InfraClassNew(Memory)
 
 
 

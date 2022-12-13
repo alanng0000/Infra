@@ -3,7 +3,7 @@
 
 
 
-ClassNew(List)
+InfraClassNew(List)
 
 
 
@@ -537,9 +537,9 @@ Bool List_DeleteNodes(List* this)
 
 
 
-ClassNew(ListNode)
+InfraClassNew(ListNode)
 
 
 
 
-ClassNew(ListRefer)
+InfraClassNew(ListRefer)

@@ -3,7 +3,7 @@
 
 
 
-ClassNew(Data)
+InfraClassNew(Data)
 
 
 

@@ -3,7 +3,7 @@
 
 
 
-ClassNew(Date)
+InfraClassNew(Date)
 
 
 

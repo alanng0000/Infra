@@ -3,7 +3,7 @@
 
 
 
-ClassNew(Constants)
+InfraClassNew(Constants)
 
 
 

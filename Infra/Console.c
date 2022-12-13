@@ -4,7 +4,7 @@
 
 
 
-ClassNew(Console)
+InfraClassNew(Console)
 
 
 

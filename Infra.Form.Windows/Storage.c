@@ -2,7 +2,7 @@
 
 
 
-ClassNew(Storage)
+InfraClassNew(Storage)
 
 
 

@@ -3,7 +3,7 @@
 
 
 
-ClassNew(Frame)
+InfraClassNew(Frame)
 
 
 

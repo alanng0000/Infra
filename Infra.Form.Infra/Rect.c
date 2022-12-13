@@ -2,7 +2,7 @@
 
 
 
-ClassNew(Rect)
+InfraClassNew(Rect)
 
 
 

@@ -2,7 +2,7 @@
 
 
 
-ClassNew(Time)
+InfraClassNew(Time)
 
 
 

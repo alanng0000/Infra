@@ -2,7 +2,7 @@
 
 
 
-ClassNew(Size)
+InfraClassNew(Size)
 
 
 

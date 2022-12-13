@@ -4,12 +4,12 @@
 
 
 
-ClassNew(Format)
+InfraClassNew(Format)
 
 
 
 
-ClassNew(FormatArg)
+InfraClassNew(FormatArg)
 
 
 

@@ -2,7 +2,7 @@
 
 
 
-ClassNew(Pos)
+InfraClassNew(Pos)
 
 
 

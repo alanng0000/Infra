@@ -2,7 +2,7 @@
 
 
 
-ClassNew(String)
+InfraClassNew(String)
 
 
 
