@@ -6,8 +6,11 @@ SET MethodsFilePath=CreateMethods.cmd
 
 
 
+SET OutFoldName=Out
 
-SET OutFold=..\..\Out
+
+
+SET OutFold=..\..\%OutFoldName%
 
 
 
@@ -103,7 +106,7 @@ SETLOCAL
 
 
 
-copy "Infra.h" "%OutFold%\Infra.h" >nul
+copy "Infra.h" "..\%OutFoldName%\Infra.h" >nul
 
 
 
