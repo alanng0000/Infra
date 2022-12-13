@@ -50,6 +50,11 @@ CALL %MethodsFilePath% :CreateModule "%Module%" "%Module%" "%OutFold%\Infra.lib 
 
 
 
+CALL :CopyHeader
+
+
+
+
 
 goto :eof
 
@@ -80,6 +85,24 @@ copy "Public.h" "%FormOutFoldPath%\Public.h" >nul
 
 
 cd ..
+
+
+
+ENDLOCAL & SET _result=
+goto :eof
+
+
+
+
+
+
+
+:CopyHeader
+SETLOCAL
+
+
+
+copy "Infra.h" "%OutFold%\Infra.h" >nul
 
 
 
