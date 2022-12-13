@@ -91,9 +91,7 @@ LONG_PTR Windows_SetWindowLongPtrW(HWND hWnd, int nIndex, LONG_PTR dwNewLong);
 BOOL Windows_SetWindowPos(HWND hWnd, HWND hWndInsertAfter, int X, int Y, int cx, int cy, UINT uFlags);
 
 
-
 int Windows_GetDeviceCaps(HDC hdc, int index);
-
 
 
 BOOL Windows_SystemParametersInfoW(UINT uiAction, UINT uiParam, PVOID pvParam, UINT fWinIni);
