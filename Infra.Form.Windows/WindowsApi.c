@@ -434,6 +434,27 @@ BOOL Windows_SetWindowPos(HWND hWnd, HWND hWndInsertAfter, int X, int Y, int cx,
 
 
 
+int Windows_GetDeviceCaps(HDC hdc, int index)
+{
+    Start;
+
+
+    int m = GetDeviceCaps(hdc, index);
+
+
+    End;
+
+
+
+    int ret = m;
+
+    return ret;
+}
+
+
+
+
+
 BOOL Windows_SystemParametersInfoW(UINT uiAction, UINT uiParam, PVOID pvParam, UINT fWinIni)
 {
     Start;
