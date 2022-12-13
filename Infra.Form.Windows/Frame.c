@@ -314,17 +314,12 @@ Bool Frame_InitWindowStyle(Frame* this)
 
 Bool Frame_InitWindowSize(Frame* this)
 {
-    RECT rc = { 0 };
-
-
-    Windows_SystemParametersInfoW(SPI_GETWORKAREA, 0, &rc, 0);
+    int w = Windows_GetDeviceCaps(HORZRES);
 
 
 
-    int w = rc.right - rc.left;
-
-
-    int h = rc.bottom - rc.top;
+    int h = Windows_GetDeviceCaps(VERTRES);
+    
 
 
     HWND hwnd = this->Hwnd;
