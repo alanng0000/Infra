@@ -2267,7 +2267,7 @@ Bool StorageExecute()
 
 
 
-    ConsoleWriteCharArray("Offset Read\n");
+    ConsoleWriteCharArray(CastInt("Offset Read\n"));
 
 
 
