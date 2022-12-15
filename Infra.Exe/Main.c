@@ -2306,12 +2306,18 @@ Bool StorageExecute()
 
 
 
+    Storage_SetMode(storage, 0);
+
+
+
+
     Storage_Open(storage);
 
 
 
 
     Storage_Offset(storage, 1, 12);
+
 
 
 
