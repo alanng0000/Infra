@@ -1936,7 +1936,6 @@ Bool StorageStringSet(Object string, Int charArray)
 
 Bool StorageExecute()
 {
-
     Int ca = CastInt("demo.txt");
 
 
@@ -2150,6 +2149,10 @@ Bool StorageExecute()
 
 
 
+
+
+
+
     StorageStatusExecute(storage);
 
 
@@ -2213,6 +2216,191 @@ Bool StorageExecute()
 
 
     Data_Delete(data);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    size = 4;
+
+
+
+
+    o = New(size);
+
+
+
+    buffer = o;
+
+
+
+
+
+    data = Data_New();
+
+
+
+    Data_Init(data);
+
+
+
+    Data_SetSize(data, size);
+
+
+    Data_SetValue(data, buffer);
+
+
+
+
+    Storage_Offset(storage, 1, 12);
+
+
+
+    Storage_Read(storage, data);
+
+
+
+
+
+    h = CastInt("Storage Read Text: ");
+
+
+
+    t = buffer;
+
+
+
+    newLine = CastInt("\n");
+
+
+
+
+    hLength = String_ConstantLength(h);
+
+
+
+    tLength = size;
+
+
+
+    newLineLength = String_ConstantLength(newLine);
+
+
+
+
+    totalLength = hLength + tLength + newLineLength;
+
+
+
+
+    wholeStringChars = New(totalLength);
+
+
+
+
+    string = String_New();
+
+
+
+    String_Init(string);
+
+
+
+    String_SetLength(string, totalLength);
+
+
+
+    String_SetData(string, wholeStringChars);
+
+
+
+
+    length = 0;
+
+
+
+    String_Copy(string, h, length, hLength);
+
+
+
+    length = length + hLength;
+
+
+
+    String_Copy(string, t, length, tLength);
+
+
+
+    length = length + tLength;
+
+
+
+    String_Copy(string, newLine, length, newLineLength);
+
+
+
+    length = length + newLineLength;
+
+
+    
+
+
+    ConsoleWrite(string);
+
+
+
+
+
+    String_Final(string);
+
+
+
+    String_Delete(string);
+
+
+
+
+
+    Delete(wholeStringChars);
+
+
+
+
+
+
+
+    Data_Final(data);
+
+
+    Data_Delete(data);
+
+
+
+
+    Delete(o);
+
+
+
+
+
+
+
+
+
+    Storage_Close(storage);
+
+
+
+
+
 
 
 
