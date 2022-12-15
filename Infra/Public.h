@@ -432,6 +432,15 @@ Bool Format_HexInt32(Object this, Int result, Int n);
 
 
 Infra_Api
+Char Format_HexDigit(Int k);
+
+
+
+
+
+
+
+Infra_Api
 Object Format_GetBase(Object this);
 
 

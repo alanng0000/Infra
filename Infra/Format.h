@@ -60,9 +60,6 @@ Bool Format_HexIntByteCount(Char* result, Int n, Int byteCount);
 
 
 
-Char Format_HexDigit(Int k);
-
-
 
 
 Int Format_ArgLength(Format* this, Int arg);
