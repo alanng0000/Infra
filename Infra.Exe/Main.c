@@ -1934,6 +1934,51 @@ Bool StorageStringSet(Object string, Int charArray)
 
 
 
+
+Bool ConsoleWriteCharArray(Int s)
+{
+    Int length = String_ConstantLength(s);
+
+
+
+    Object string = String_New();
+
+
+
+    String_Init(string);
+
+
+
+    String_SetLength(string, length);
+
+
+
+    String_SetData(string, s);
+
+
+
+
+    ConsoleWrite(string);
+
+
+
+
+    String_Final(string);
+
+
+
+    String_Delete(string);
+
+
+
+    return true;
+}
+
+
+
+
+
+
 Bool StorageExecute()
 {
     Int ca = CastInt("demo.txt");
@@ -2222,7 +2267,7 @@ Bool StorageExecute()
 
 
 
-
+    ConsoleWriteCharArray("Offset Read\n");
 
 
 
@@ -2639,45 +2684,6 @@ Bool DemoExecute()
 
 
 
-
-Bool ConsoleWriteCharArray(Int s)
-{
-    Int length = String_ConstantLength(s);
-
-
-
-    Object string = String_New();
-
-
-
-    String_Init(string);
-
-
-
-    String_SetLength(string, length);
-
-
-
-    String_SetData(string, s);
-
-
-
-
-    ConsoleWrite(string);
-
-
-
-
-    String_Final(string);
-
-
-
-    String_Delete(string);
-
-
-
-    return true;
-}
 
 
 
