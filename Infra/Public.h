@@ -83,6 +83,10 @@ typedef unsigned int Int32;
 
 
 
+#define Constants_HexDigitBitCount (4)
+
+
+
 
 
 
