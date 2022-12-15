@@ -2218,7 +2218,7 @@ Bool StorageExecute()
 
 
 
-    Int os = CastInt("DEMOSTORAGE 1234");
+    Int os = CastInt("DEMOSTORAGE FGHJ");
 
 
 
