@@ -2305,6 +2305,12 @@ Bool StorageExecute()
 
 
 
+
+    Storage_Open(storage);
+
+
+
+
     Storage_Offset(storage, 1, 12);
 
 
