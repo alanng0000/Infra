@@ -2270,7 +2270,7 @@ Bool StorageExecute()
 
 
 
-    h = CastInt("Storage Read Text: ");
+    h = CastInt("Storage Offset Read Text: ");
 
 
 
