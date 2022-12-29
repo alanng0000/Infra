@@ -260,35 +260,35 @@ Bool Date_SetHour(Object this, Int value);
 
 
 Infra_Form_Api
-Int Date_GetMinute(Object this);
+Int Date_GetMin(Object this);
 
 
 
 Infra_Form_Api
-Bool Date_SetMinute(Object this, Int value);
-
-
-
-
-Infra_Form_Api
-Int Date_GetSecond(Object this);
-
-
-
-Infra_Form_Api
-Bool Date_SetSecond(Object this, Int value);
+Bool Date_SetMin(Object this, Int value);
 
 
 
 
 Infra_Form_Api
-Int Date_GetMillisecond(Object this);
+Int Date_GetSec(Object this);
+
+
+
+Infra_Form_Api
+Bool Date_SetSec(Object this, Int value);
 
 
 
 
 Infra_Form_Api
-Bool Date_SetMillisecond(Object this, Int value);
+Int Date_GetMillisec(Object this);
+
+
+
+
+Infra_Form_Api
+Bool Date_SetMillisec(Object this, Int value);
 
 
 
