@@ -5,7 +5,7 @@ goto :eof
 
 
 
-:CreateModule
+:MakeModule
 SETLOCAL
 SET Module=%~1
 SET Fold=%~2

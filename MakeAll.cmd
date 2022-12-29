@@ -2,7 +2,7 @@
 
 
 
-SET MethodsFilePath=CreateMethods.cmd
+SET MethodsFilePath=MakeMethodList.cmd
 
 
 
@@ -18,7 +18,7 @@ SET OutFold=..\..\%OutFoldName%
 SET Module=Infra
 
 
-CALL %MethodsFilePath% :CreateModule "%Module%" "%Module%"
+CALL %MethodsFilePath% :MakeModule "%Module%" "%Module%"
 
 
 
@@ -26,7 +26,7 @@ CALL %MethodsFilePath% :CreateModule "%Module%" "%Module%"
 SET Module=Infra.Form.Infra
 
 
-CALL %MethodsFilePath% :CreateModule "%Module%" "%Module%" "%OutFold%\Infra.lib"
+CALL %MethodsFilePath% :MakeModule "%Module%" "%Module%" "%OutFold%\Infra.lib"
 
 
 
@@ -38,7 +38,7 @@ CALL :CreateForm
 SET Module=Infra.Form.Windows
 
 
-CALL %MethodsFilePath% :CreateModule "%Module%" "%Module%" "%OutFold%\Infra.lib %OutFold%\Infra.Form.Infra.lib Kernel32.lib User32.lib Gdi32.lib Synchronization.lib"
+CALL %MethodsFilePath% :MakeModule "%Module%" "%Module%" "%OutFold%\Infra.lib %OutFold%\Infra.Form.Infra.lib Kernel32.lib User32.lib Gdi32.lib Synchronization.lib"
 
 
 
@@ -53,7 +53,7 @@ CALL :CopyHeader
 SET Module=Infra.Exe
 
 
-CALL %MethodsFilePath% :CreateModule "%Module%" "%Module%" "%OutFold%\Infra.lib %OutFold%\Infra.Form.Infra.lib %OutFold%\Infra.Form.Windows.lib" exe
+CALL %MethodsFilePath% :MakeModule "%Module%" "%Module%" "%OutFold%\Infra.lib %OutFold%\Infra.Form.Infra.lib %OutFold%\Infra.Form.Windows.lib" exe
 
 
 
