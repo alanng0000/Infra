@@ -197,18 +197,18 @@ Bool Time_Date(Object this, Object date)
     Int hour = 0;
 
 
-    Int minute = 0;
+    Int min = 0;
 
 
-    Int second = 0;
+    Int sec = 0;
 
 
-    Int millisecond = 0;
+    Int millisec = 0;
 
 
 
 
-    Time_ToDate(tickCount, &year, &month, &day, &hour, &minute, &second, &millisecond);
+    Time_ToDate(tickCount, &year, &month, &day, &hour, &min, &sec, &millisec);
 
 
 
@@ -225,13 +225,13 @@ Bool Time_Date(Object this, Object date)
     Date_SetHour(date, hour);
 
 
-    Date_SetMinute(date, minute);
+    Date_SetMin(date, min);
 
 
-    Date_SetSecond(date, second);
+    Date_SetSec(date, sec);
 
 
-    Date_SetMillisecond(date, millisecond);
+    Date_SetMillisec(date, millisec);
 
 
 
@@ -242,7 +242,7 @@ Bool Time_Date(Object this, Object date)
 
 
 
-Int Time_TickCount(Int year, Int month, Int day, Int hour, Int minute, Int second, Int millisecond)
+Int Time_TickCount(Int year, Int month, Int day, Int hour, Int min, Int sec, Int millisec)
 {
     Int dayCount = Time_DayCountFromOrigin(year, month, day);
 
@@ -289,13 +289,13 @@ Int Time_TickCount(Int year, Int month, Int day, Int hour, Int minute, Int secon
     k = k + hour * millisecondCountInHour;
 
 
-    k = k + minute * millisecondCountInMinute;
+    k = k + min * millisecondCountInMinute;
 
 
-    k = k + second * millisecondCountInSecond;
+    k = k + sec * millisecondCountInSecond;
 
 
-    k = k + millisecond;
+    k = k + millisec;
 
 
 
