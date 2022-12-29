@@ -346,7 +346,7 @@ Bool Date_Time(Object this, Object time)
 
 
 
-    Int tickCount = Time_TickCount(year, month, day, hour, minute, sec, millisec);
+    Int tickCount = Time_TickCount(year, month, day, hour, min, sec, millisec);
 
 
 
