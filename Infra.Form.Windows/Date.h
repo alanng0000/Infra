@@ -22,13 +22,13 @@ typedef struct
     Int Hour;
 
 
-    Int Minute;
+    Int Min;
 
 
-    Int Second;
+    Int Sec;
 
 
-    Int Millisecond;
+    Int Millisec;
 
 
 

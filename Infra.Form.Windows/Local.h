@@ -42,7 +42,7 @@ Int Time_TickCount(Int year, Int month, Int day, Int hour, Int minute, Int secon
 
 
 
-Bool Time_ToDate(Int tickCount, Int* year, Int* month, Int* day, Int* hour, Int* minute, Int* second, Int* millisecond);
+Bool Time_ToDate(Int tickCount, Int* year, Int* month, Int* day, Int* hour, Int* min, Int* sec, Int* millisec);
 
 
 

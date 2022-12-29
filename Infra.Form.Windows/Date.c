@@ -199,28 +199,28 @@ Bool Date_SetHour(Object this, Int value)
 
 
 
-Int Date_GetMinute(Object this)
+Int Date_GetMin(Object this)
 {
     Date* m = CastPointer(this);
 
 
-    return m->Minute;
+    return m->Min;
 }
 
 
 
 
-Bool Date_SetMinute(Object this, Int value)
+Bool Date_SetMin(Object this, Int value)
 {
     Date* m = CastPointer(this);
 
 
 
-    Int minuteCount = Constants_MinuteCountInHour(m->Constants);
+    Int minCount = Constants_MinuteCountInHour(m->Constants);
 
 
 
-    Bool b = (value < minuteCount);
+    Bool b = (value < minCount);
 
 
 
@@ -231,7 +231,7 @@ Bool Date_SetMinute(Object this, Int value)
 
 
 
-    m->Minute = value;
+    m->Min = value;
 
 
     return true;
@@ -241,28 +241,28 @@ Bool Date_SetMinute(Object this, Int value)
 
 
 
-Int Date_GetSecond(Object this)
+Int Date_GetSec(Object this)
 {
     Date* m = CastPointer(this);
 
 
-    return m->Second;
+    return m->Sec;
 }
 
 
 
 
-Bool Date_SetSecond(Object this, Int value)
+Bool Date_SetSec(Object this, Int value)
 {
     Date* m = CastPointer(this);
 
 
 
-    Int secondCount = Constants_SecondCountInMinute(m->Constants);
+    Int secCount = Constants_SecondCountInMinute(m->Constants);
 
 
 
-    Bool b = (value < secondCount);
+    Bool b = (value < secCount);
 
 
 
@@ -273,7 +273,7 @@ Bool Date_SetSecond(Object this, Int value)
 
 
 
-    m->Second = value;
+    m->Sec = value;
 
 
     return true;
@@ -283,28 +283,28 @@ Bool Date_SetSecond(Object this, Int value)
 
 
 
-Int Date_GetMillisecond(Object this)
+Int Date_GetMillisec(Object this)
 {
     Date* m = CastPointer(this);
 
 
-    return m->Millisecond;
+    return m->Millisec;
 }
 
 
 
 
-Bool Date_SetMillisecond(Object this, Int value)
+Bool Date_SetMillisec(Object this, Int value)
 {
     Date* m = CastPointer(this);
 
 
 
-    Int millisecondCount = Constants_MillisecondCountInSecond(m->Constants);
+    Int millisecCount = Constants_MillisecondCountInSecond(m->Constants);
 
 
 
-    Bool b = (value < millisecondCount);
+    Bool b = (value < millisecCount);
 
 
 
@@ -315,7 +315,7 @@ Bool Date_SetMillisecond(Object this, Int value)
 
 
 
-    m->Millisecond = value;
+    m->Millisec = value;
 
 
     return true;
@@ -338,15 +338,15 @@ Bool Date_Time(Object this, Object time)
 
     Int hour = m->Hour;
 
-    Int minute = m->Minute;
+    Int min = m->Min;
 
-    Int second = m->Second;
+    Int sec = m->Sec;
 
-    Int millisecond = m->Millisecond;
+    Int millisec = m->Millisec;
 
 
 
-    Int tickCount = Time_TickCount(year, month, day, hour, minute, second, millisecond);
+    Int tickCount = Time_TickCount(year, month, day, hour, minute, sec, millisec);
 
 
 
