@@ -1223,15 +1223,15 @@ Bool TimeExecute()
 
 
 
-    Int minute = Date_GetMinute(date);
+    Int min = Date_GetMin(date);
 
 
 
-    Int second = Date_GetSecond(date);
+    Int sec = Date_GetSec(date);
 
 
 
-    Int millisecond = Date_GetMillisecond(date);
+    Int millisec = Date_GetMillisec(date);
 
 
 
@@ -1306,23 +1306,23 @@ Bool TimeExecute()
 
 
 
-    Int minuteLength = Format_IntLength(format, minute);
+    Int minLength = Format_IntLength(format, min);
 
 
 
-    Int secondLength = Format_IntLength(format, second);
+    Int secLength = Format_IntLength(format, sec);
 
 
 
-    Int millisecondLength = Format_IntLength(format, millisecond);
+    Int millisecLength = Format_IntLength(format, millisec);
 
 
 
 
     Int totalLength = tLength + spaceLength + 
         yearLength + hyphenLength + monthLength + hyphenLength + dayLength + spaceLength +
-        hourLength + colonLength + minuteLength + colonLength + secondLength + spaceLength +
-        millisecondLength + newLineLength;
+        hourLength + colonLength + minLength + colonLength + secLength + spaceLength +
+        millisecLength + newLineLength;
 
 
 
@@ -1455,11 +1455,11 @@ Bool TimeExecute()
     p = CharArray(wholeStringChars, length);
 
 
-    Format_Int(format, p, minute, minuteLength);
+    Format_Int(format, p, min, minLength);
 
 
 
-    length = length + minuteLength;
+    length = length + minLength;
 
 
 
@@ -1474,11 +1474,11 @@ Bool TimeExecute()
     p = CharArray(wholeStringChars, length);
 
 
-    Format_Int(format, p, second, secondLength);
+    Format_Int(format, p, sec, secLength);
 
 
     
-    length = length + secondLength;
+    length = length + secLength;
 
 
 
@@ -1493,11 +1493,11 @@ Bool TimeExecute()
     p = CharArray(wholeStringChars, length);
 
 
-    Format_Int(format, p, millisecond, millisecondLength);
+    Format_Int(format, p, millisec, millisecLength);
 
 
 
-    length = length + millisecondLength;
+    length = length + millisecLength;
 
 
 
