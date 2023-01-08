@@ -36,7 +36,7 @@ Int Font_Create(Int nameLength, Int name, Int size, Int weight, Bool italic, Boo
     
     u = Windows_CreateFontA(size, 0, 0, 0, weight, ui, uu, 
         FALSE, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, 
-        DWORD iQuality, DWORD iPitchAndFamily, LPCSTR pszFaceName);
+        CLEARTYPE_QUALITY, DWORD iPitchAndFamily, LPCSTR pszFaceName);
 
 
 
