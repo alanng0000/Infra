@@ -6,10 +6,37 @@
 
 Int Font_Create(Int nameLength, Int name, Int size, Int weight, Bool italic, Bool underline)
 {
+    DWORD ui;
+
+    ui = FALSE;
+
+
+    if (italic)
+    {
+        ui = TRUE;
+    }
+
+
+
+    DWORD uu;
+
+    uu = FALSE;
+
+
+    if (underline)
+    {
+        uu = TRUE;
+    }
+
+
+
+
     HFONT u;
     
     
-    u = Windows_CreateFontA(size, 0, 0, 0, int cWeight, DWORD bItalic, DWORD bUnderline, DWORD bStrikeOut, DWORD iCharSet, DWORD iOutPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCSTR pszFaceName);
+    u = Windows_CreateFontA(size, 0, 0, 0, weight, ui, uu, 
+        DWORD bStrikeOut, DWORD iCharSet, DWORD iOutPrecision, DWORD iClipPrecision, 
+        DWORD iQuality, DWORD iPitchAndFamily, LPCSTR pszFaceName);
 
 
 
