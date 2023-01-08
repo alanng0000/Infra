@@ -406,6 +406,13 @@ Bool Storage_Offset(Object this, Int offset, Int origin);
 
 
 
+Infra_Form_Api
+Int Font_Create(Int nameLength, Byte* name, Int weight, Bool italic, Bool underline);
+
+
+
+
+
 
 Infra_Form_Api
 Bool Infra_Form_Init();
