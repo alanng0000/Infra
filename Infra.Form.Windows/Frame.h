@@ -101,6 +101,11 @@ Bool Frame_InitWindowSize(Frame* this);
 
 
 
+Bool Frame_InitWindowFont(Frame* this);
+
+
+
+
 LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit);
 
 
