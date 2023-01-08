@@ -3491,6 +3491,34 @@ Bool SpeedDemoExecute()
 
 
 
+Bool FontExecute()
+{
+    Int u;
+
+    u = CastInt("Cascadia Mono");
+
+
+
+    Int length;
+
+    length = String_ConstantLength(u);
+
+
+
+
+    Int font;
+
+    font = Font_Create(length, u, 20, 700, true, false);
+
+
+
+
+
+    return true;
+}
+
+
+
 
 
 
@@ -3535,6 +3563,10 @@ int main(int argc, char* argv[])
 
     FrameExecute();
 
+
+
+
+    FontExecute();
 
 
 
