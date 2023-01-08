@@ -379,13 +379,6 @@ Bool Frame_InitWindowSize(Frame* this)
 
 
 
-Bool Frame_InitWindowFont(Frame* this)
-{
-    return true;
-}
-
-
-
 
 
 LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit)
@@ -575,6 +568,42 @@ Bool Frame_InitBitmapBuffer(Frame* this)
 
     return true;
 }
+
+
+
+
+
+Bool Frame_SelectFont(Object this, Int font)
+{
+    Frame* m;
+
+    m = CastPointer(this);
+
+
+    
+    HDC u;
+
+    u = m->Hdc;
+    
+
+
+
+    HGDIOBJ uu;
+
+    uu = (HGDIOBJ)font;
+
+
+
+
+    Windows_SelectObject(u, uu);
+
+
+
+    return true;
+}
+
+
+
 
 
 

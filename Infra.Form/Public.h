@@ -102,6 +102,16 @@ Bool Frame_Close(Object this);
 
 
 
+
+Infra_Form_Api
+Bool Frame_SelectFont(Object this, Int font);
+
+
+
+
+
+
+
 InfraObjectApi(Infra_Form, Time)
 
 
@@ -410,10 +420,6 @@ Infra_Form_Api
 Int Font_Create(Int nameLength, Int name, Int size, Int weight, Bool italic, Bool underline);
 
 
-
-
-Infra_Form_Api
-Bool Font_Select(Int context, Int font);
 
 
 

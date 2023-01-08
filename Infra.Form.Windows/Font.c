@@ -102,29 +102,3 @@ Int Font_Create(Int nameLength, Int name, Int size, Int weight, Bool italic, Boo
 
     return ret;
 }
-
-
-
-
-
-Bool Font_Select(Int context, Int font)
-{
-    HDC u;
-
-    u = (HDC)context;
-
-
-
-    HGDIOBJ uu;
-
-    uu = (HGDIOBJ)font;
-
-
-
-
-    Windows_SelectObject(u, uu);
-
-
-
-    return true;
-}
