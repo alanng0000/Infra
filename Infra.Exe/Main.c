@@ -3512,7 +3512,14 @@ Bool FontExecute()
 
 
 
-    ConsoleWriteCharArray("Font Create Call Done\n");
+
+    Int o;
+
+    o = CastInt("Font Create Call Done\n");
+
+
+
+    ConsoleWriteCharArray(o);
 
 
 
