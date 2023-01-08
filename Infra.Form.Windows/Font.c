@@ -31,6 +31,18 @@ Int Font_Create(Int nameLength, Int name, Int size, Int weight, Bool italic, Boo
 
 
 
+    int uSize;
+
+    uSize = (int)size;
+
+
+
+    int uWeight;
+
+    uWeight = (int)weight;
+
+
+
 
 
     Int k;
@@ -55,7 +67,7 @@ Int Font_Create(Int nameLength, Int name, Int size, Int weight, Bool italic, Boo
 
     LPCSTR faceName;
 
-    faceName = p;
+    faceName = (LPCSTR)p;
 
 
 
@@ -64,7 +76,7 @@ Int Font_Create(Int nameLength, Int name, Int size, Int weight, Bool italic, Boo
     HFONT u;
     
     
-    u = Windows_CreateFontA(size, 0, 0, 0, weight, ui, uu, 
+    u = Windows_CreateFontA(uSize, 0, 0, 0, uWeight, ui, uu, 
         FALSE, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, 
         CLEARTYPE_QUALITY, DEFAULT_PITCH | FF_DONTCARE, faceName);
 
