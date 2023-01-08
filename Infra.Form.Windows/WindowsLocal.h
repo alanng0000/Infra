@@ -124,6 +124,9 @@ BOOL Windows_GetUpdateRect(HWND hWnd, LPRECT lpRect, BOOL bErase);
 BOOL Windows_BitBlt(HDC hdc, int x, int y, int cx, int cy, HDC hdcSrc, int x1, int y1, DWORD rop);
 
 
+BOOL Windows_ExtTextOutA(HDC hdc, int x, int y, UINT options, const RECT *lprect, LPCSTR lpString, UINT c, const INT  *lpDx);
+
+
 HANDLE Windows_LoadImageW(HINSTANCE hInst, LPCWSTR name, UINT type, int cx, int cy, UINT fuLoad);
 
 
