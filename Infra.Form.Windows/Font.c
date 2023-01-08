@@ -91,7 +91,7 @@ Int Font_Create(Int nameLength, Int name, Int size, Int weight, Bool italic, Boo
 
     Int o;
 
-    o = u;
+    o = (Int)u;
 
 
 
