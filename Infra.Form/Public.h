@@ -412,6 +412,11 @@ Int Font_Create(Int nameLength, Int name, Int size, Int weight, Bool italic, Boo
 
 
 
+Infra_Form_Api
+Bool Font_Select(Int context, Int font);
+
+
+
 
 
 Infra_Form_Api
