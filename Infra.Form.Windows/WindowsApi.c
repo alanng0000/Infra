@@ -689,6 +689,34 @@ BOOL Windows_BitBlt(HDC hdc, int x, int y, int cx, int cy, HDC hdcSrc, int x1, i
 
 
 
+
+
+HFONT Windows_CreateFontA(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, DWORD bStrikeOut, DWORD iCharSet, DWORD iOutPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCSTR pszFaceName)
+{
+    Start;
+
+
+    HFONT m = CreateFontA(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pszFaceName);
+
+
+    End;
+
+
+    Check(m != NULL);
+
+
+    HFONT ret = m;
+
+    return ret;
+}
+
+
+
+
+
+
+
+
 HANDLE Windows_LoadImageW(HINSTANCE hInst, LPCWSTR name, UINT type, int cx, int cy, UINT fuLoad)
 {
     Start;
