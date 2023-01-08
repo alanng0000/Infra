@@ -127,6 +127,9 @@ BOOL Windows_BitBlt(HDC hdc, int x, int y, int cx, int cy, HDC hdcSrc, int x1, i
 BOOL Windows_ExtTextOutA(HDC hdc, int x, int y, UINT options, const RECT *lprect, LPCSTR lpString, UINT c, const INT  *lpDx);
 
 
+COLORREF Windows_SetTextColor(HDC hdc, COLORREF color);
+
+
 HANDLE Windows_LoadImageW(HINSTANCE hInst, LPCWSTR name, UINT type, int cx, int cy, UINT fuLoad);
 
 
