@@ -1053,11 +1053,14 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
-            Object h = (Object)frame;
+            
+            if (!(frame->ControlHandle == null))
+            {
+                Object h = (Object)frame;
 
 
-
-            frame->ControlHandle(h, key, true);
+                frame->ControlHandle(h, key, true);
+            }
         }
         handled = true;
         break;
@@ -1075,11 +1078,14 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
-            Object h = (Object)frame;
+            
+            if (!(frame->ControlHandle == null))
+            {
+                Object h = (Object)frame;
 
 
-
-            frame->ControlHandle(h, key, false);
+                frame->ControlHandle(h, key, false);
+            }
         }
         handled = true;
         break;
