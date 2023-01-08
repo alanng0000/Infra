@@ -381,17 +381,6 @@ Bool Frame_InitWindowSize(Frame* this)
 
 Bool Frame_InitWindowFont(Frame* this)
 {
-    Windows_SystemParametersInfo(SPI_SETFONTSMOOTHING,
-                     TRUE,
-                     0,
-                     SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
-    
-    Windows_SystemParametersInfo(SPI_SETFONTSMOOTHINGTYPE,
-                     0,
-                     (PVOID)FE_FONTSMOOTHINGCLEARTYPE,
-                     SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
-
-
     return true;
 }
 
