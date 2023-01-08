@@ -3512,6 +3512,8 @@ Bool FontExecute()
 
 
 
+    ConsoleWriteCharArray("Font Create Call Done\n");
+
 
 
     return true;
