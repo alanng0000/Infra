@@ -735,6 +735,22 @@ HBRUSH Windows_CreateSolidBrush(COLORREF color)
 
 
 
+BOOL Windows_AlphaBlend(HDC hdcDest, int xoriginDest, int yoriginDest, int wDest, int hDest,
+    HDC hdcSrc, int xoriginSrc, int yoriginSrc, int wSrc, int hSrc, BLENDFUNCTION ftn)
+{
+    Start;
+
+
+    BOOL m = AlphaBlend(hdcDest, xoriginDest, yoriginDest, wDest, hDest,
+            hdcSrc, xoriginSrc, yoriginSrc, wSrc, hSrc, ftn);
+
+
+    End;
+}
+
+
+
+
 
 int Windows_FillRect(HDC hDC, const RECT *lprc, HBRUSH hbr)
 {
