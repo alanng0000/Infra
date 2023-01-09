@@ -127,6 +127,9 @@ BOOL Windows_BitBlt(HDC hdc, int x, int y, int cx, int cy, HDC hdcSrc, int x1, i
 HBRUSH Windows_CreateSolidBrush(COLORREF color);
 
 
+int Windows_FillRect(HDC hDC, const RECT *lprc, HBRUSH hbr);
+
+
 HFONT Windows_CreateFontA(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, DWORD bStrikeOut, DWORD iCharSet, DWORD iOutPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCSTR pszFaceName);
 
 
