@@ -228,7 +228,7 @@ Bool Frame_InitWindowTitle(Object this)
 
 
 
-    Frame_CopyString(u, title);
+    Frame_CopyString(this, u, title);
 
 
 
@@ -432,7 +432,7 @@ Bool Frame_SelectFont(Object this, Int font)
 
 
 
-Bool Frame_CopyString(WCHAR* result, Object string)
+Bool Frame_CopyString(Object this, WCHAR* result, Object string)
 {
     Int count = String_GetLength(string);
 

@@ -56,7 +56,7 @@ Frame;
 
 
 
-Bool Frame_CopyString(WCHAR* result, Object string);
+Bool Frame_CopyString(Object this, WCHAR* result, Object string);
 
 
 
