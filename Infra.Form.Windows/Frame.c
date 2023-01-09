@@ -654,6 +654,28 @@ Bool Frame_SetControlHandle(Object this, Int value)
 
 
 
+Frame_ControlHandle_Method Frame_GetControlHandleMethod(Object this)
+{
+    Int o;
+
+
+    o = Frame_GetControlHandle(this);
+
+
+
+    Frame_ControlHandle_Method method;
+
+
+    method = CastPointer(o);
+
+
+
+    return method;
+}
+
+
+
+
 
 Object Frame_GetFrame(HWND hwnd)
 {
@@ -761,22 +783,26 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
             Byte key = (Byte)wParam;
 
 
-            HWND o = (HWND)hwnd;
+            HWND uu = (HWND)hwnd;
+
 
 
             Object frame;
             
-            frame = Frame_GetFrame(o);
+            frame = Frame_GetFrame(uu);
 
 
+
+
+            Frame_ControlHandle_Method method;
+
+            method = Frame_GetControlHandleMethod(frame);
+            
 
             
-            if (!(frame->ControlHandle == null))
+            if (!(method == null))
             {
-                Object h = (Object)frame;
-
-
-                frame->ControlHandle(h, key, true);
+                method(frame, key, true);
             }
         }
         handled = true;
@@ -788,20 +814,26 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
             Byte key = (Byte)wParam;
 
 
-            HWND o = (HWND)hwnd;
+            HWND uu = (HWND)hwnd;
 
 
-            Frame* frame = Frame_GetFrame(o);
+
+            Object frame;
+            
+            frame = Frame_GetFrame(uu);
 
 
+
+
+            Frame_ControlHandle_Method method;
+
+            method = Frame_GetControlHandleMethod(frame);
+            
 
             
-            if (!(frame->ControlHandle == null))
+            if (!(method == null))
             {
-                Object h = (Object)frame;
-
-
-                frame->ControlHandle(h, key, false);
+                method(frame, key, false);
             }
         }
         handled = true;

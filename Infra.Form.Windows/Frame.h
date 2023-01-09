@@ -104,6 +104,9 @@ Object Frame_GetFrame(HWND hwnd);
 
 
 
+Frame_ControlHandle_Method Frame_GetControlHandleMethod(Object this);
+
+
 
 
 
