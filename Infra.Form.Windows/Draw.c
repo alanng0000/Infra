@@ -185,7 +185,7 @@ Bool Draw_Rect(Object this, Int left, Int up, Int width, Int height, Int brush)
 
 
 
-    HDc hdc;
+    HDC hdc;
 
     hdc = m->Hdc;
 
