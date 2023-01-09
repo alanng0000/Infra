@@ -551,7 +551,9 @@ Bool Frame_Update(Object this)
 
 
 
-    HWND hwnd = m->Hwnd;
+    HWND hwnd;
+    
+    hwnd = m->Hwnd;
 
 
 
