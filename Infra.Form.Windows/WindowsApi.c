@@ -689,6 +689,28 @@ BOOL Windows_BitBlt(HDC hdc, int x, int y, int cx, int cy, HDC hdcSrc, int x1, i
 
 
 
+HBRUSH Windows_CreateSolidBrush(COLORREF color)
+{
+    Start;
+
+
+    HBRUSH m = CreateSolidBrush(color);
+
+
+    End;
+
+
+    Check(!(m == NULL));
+
+
+    HBRUSH ret = m;
+
+    return ret;
+}
+
+
+
+
 
 
 HFONT Windows_CreateFontA(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, DWORD bStrikeOut, DWORD iCharSet, DWORD iOutPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCSTR pszFaceName)
