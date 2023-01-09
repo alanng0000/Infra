@@ -379,7 +379,10 @@ LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit)
     d = d & m;
 
 
-    LONG_PTR ret = d;
+
+    LONG_PTR ret;
+    
+    ret = d;
 
     return ret;
 }
