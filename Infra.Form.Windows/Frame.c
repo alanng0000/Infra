@@ -672,24 +672,6 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
             
 
 
-            Int left = t.left;
-
-
-            Int up = t.top;
-
-
-
-            Int right = t.right;
-
-            
-            Int down = t.bottom;
-
-
-
-            Int width = right - left;
-
-
-            Int height = down - up;
 
 
 
