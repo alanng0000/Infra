@@ -526,7 +526,7 @@ Bool FrameExecute()
 
 
 
-    Int os = CastInt("Machine Tester");
+    Int os = CastInt("Infra Demo Frame");
 
 
 
