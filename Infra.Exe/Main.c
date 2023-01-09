@@ -583,7 +583,7 @@ Bool FrameExecute()
 
 
 
-    DrawBrush = Draw_CreateColorBrush(255, 0, 0);
+    DrawBrush = Draw_CreateColorBrush(0, 0, 255);
 
 
 
