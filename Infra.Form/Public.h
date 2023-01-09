@@ -60,7 +60,14 @@ typedef Bool (*Frame_ControlHandle_Method)(Object frame, Int key, Int value);
 
 
 Infra_Form_Api
-Bool Frame_SetControlHandle(Object this, Frame_ControlHandle_Method value);
+Int Frame_GetControlHandle(Object this);
+
+
+
+
+Infra_Form_Api
+Bool Frame_SetControlHandle(Object this, Int value);
+
 
 
 
