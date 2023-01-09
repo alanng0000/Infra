@@ -96,8 +96,28 @@ Bool Frame_Close(Object this);
 
 
 
+
+
+
+
+
+
+
+
+
+
 Infra_Form_Api
-Bool Frame_SelectFont(Object this, Int font);
+Bool Draw_ColorRect(Object this, Int left, Int up, Int width, Int height, Int color);
+
+
+
+
+
+Infra_Form_Api
+Bool Draw_SelectFont(Object this, Int font);
+
+
+
 
 
 
