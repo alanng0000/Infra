@@ -177,7 +177,7 @@ Int Draw_CreateColorBrush(Int red, Int green, Int blue)
 
 
 
-Bool Draw_Rect(Object this, Int left, Int up, Int width, Int height, Int brush)
+Bool Draw_Rect(Object this, int left, int up, Int width, Int height, Int brush)
 {
     Draw* m;
 
@@ -196,14 +196,28 @@ Bool Draw_Rect(Object this, Int left, Int up, Int width, Int height, Int brush)
 
 
 
-    Int right;
 
-    right = left + width;
+    int widthU;
+
+    widthU = (int)width;
 
 
-    Int down;
 
-    down = up + height;
+    int heightU;
+
+    heightU = (int)height;
+
+
+
+    int right;
+
+    right = left + widthU;
+    
+
+
+    int down;
+
+    down = up + heightU;
 
 
 
@@ -215,6 +229,7 @@ Bool Draw_Rect(Object this, Int left, Int up, Int width, Int height, Int brush)
     rect.right = right;
 
     rect.bottom = down;
+    
 
 
 
