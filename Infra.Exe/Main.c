@@ -553,6 +553,12 @@ Bool FrameExecute()
 
 
 
+    Int uu;
+
+    uu = CastInt(&ControlHandle);
+    
+
+
 
 
     Object frame = Frame_New();
@@ -567,7 +573,7 @@ Bool FrameExecute()
 
 
 
-    Frame_SetControlHandle(frame, &ControlHandle);
+    Frame_SetControlHandle(frame, uu);
 
 
 
@@ -603,6 +609,7 @@ Bool FrameExecute()
 
     return true;
 }
+
 
 
 
