@@ -144,6 +144,45 @@ Bool Frame_InitDraw(Object this)
 
 
 
+
+    Object size;
+
+    size = m->Size;
+
+
+
+
+    Int width;
+
+    width = Size_GetWidth(size);
+
+
+
+    Int height;
+
+    height = Size_GetHeight(size);
+
+
+
+
+
+    Object drawSize;
+
+
+    drawSize = Draw_GetSize(draw);
+
+
+
+
+    Size_SetWidth(drawSize, width);
+
+
+
+    Size_SetHeight(drawSize, height);
+
+
+
+
     m->Draw = draw;
 
 
