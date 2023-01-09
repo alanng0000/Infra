@@ -36,6 +36,10 @@ typedef struct
 
 
 
+    Object Draw;
+
+
+
     WCHAR* WindowTitle;
 
 
@@ -75,6 +79,13 @@ Bool Frame_InitWindowStyle(Object this);
 
 
 Bool Frame_InitWindowSize(Object this);
+
+
+
+
+
+Bool Frame_InitDraw(Object this);
+
 
 
 

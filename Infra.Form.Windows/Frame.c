@@ -64,6 +64,10 @@ Bool Frame_Init(Object this)
 
 
 
+    Frame_InitDraw(this);
+
+
+
 
     return true;
 }
@@ -71,11 +75,24 @@ Bool Frame_Init(Object this)
 
 
 
+
 Bool Frame_Final(Object this)
 {
     Frame* m;
-    
+
+
     m = CastPointer(this);
+
+
+
+
+    Draw_Final(m->Draw);
+
+
+
+    Draw_Delete(m->Draw);
+
+
 
 
 
@@ -102,6 +119,47 @@ Bool Frame_Final(Object this)
 }
 
 
+
+
+
+Bool Frame_InitDraw(Object this)
+{
+    Frame* m;
+
+    m = CastPointer(this);
+
+
+
+    Int o;
+
+    o = CastInt(m->Hdc);
+
+
+
+
+    Object draw;
+
+
+
+    draw = Draw_New();
+
+
+
+    Draw_SetHandle(draw, o);
+
+
+
+    Draw_Init(draw);
+
+
+
+
+    m->Draw = draw;
+
+
+
+    return true;
+}
 
 
 
@@ -507,6 +565,19 @@ Object Frame_GetSize(Object this)
     return m->Size;
 }
 
+
+
+
+Object Frame_GetDraw(Object this)
+{
+    Frame* m;
+
+    m = CastPointer(this);
+
+
+
+    return m->Draw;
+}
 
 
 
