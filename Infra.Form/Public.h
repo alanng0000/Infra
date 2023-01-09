@@ -143,7 +143,7 @@ Int Draw_CreateColorBrush(Int red, Int green, Int blue);
 
 
 Infra_Form_Api
-Bool Draw_Rect(Object this, Int left, Int up, Int width, Int height, Int brush);
+Bool Draw_Rect(Object this, int left, int up, Int width, Int height, Int brush);
 
 
 
