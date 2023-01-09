@@ -225,7 +225,7 @@ Bool Frame_InitWindow(Object this)
 
 
 
-    LONG_PTR o = (LONG_PTR)m;
+    LONG_PTR o = (LONG_PTR)this;
 
 
     Windows_SetWindowLongPtrW(m->Hwnd, GWLP_USERDATA, o);
@@ -621,15 +621,23 @@ Bool Frame_SetControlHandle(Object this, Frame_ControlHandle_Method value)
 
 
 
-Frame* Frame_GetFrame(HWND hwnd)
+Object Frame_GetFrame(HWND hwnd)
 {
-    LONG_PTR o = Windows_GetWindowLongPtrW(hwnd, GWLP_USERDATA);
+    LONG_PTR o;
+    
+    o = Windows_GetWindowLongPtrW(hwnd, GWLP_USERDATA);
 
 
-    Frame* p = (Frame*)o;
+
+    Object p;
+    
+    p = CastInt(o);
 
 
-    Frame* ret = p;
+
+    Object ret;
+    
+    ret = p;
 
 
     return ret;
