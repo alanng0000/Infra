@@ -23,7 +23,7 @@ Bool Draw_Init(Object this)
 
 
 
-    Draw_SetSize(size);
+    Draw_SetSize(this, size);
 
 
 
