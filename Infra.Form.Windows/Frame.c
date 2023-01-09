@@ -163,7 +163,7 @@ Bool Frame_InitWindow(Object this)
 
 
 
-    m->Hdc = Windows_GetDC(this->Hwnd);
+    m->Hdc = Windows_GetDC(m->Hwnd);
 
 
 
