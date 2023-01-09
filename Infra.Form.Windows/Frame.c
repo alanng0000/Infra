@@ -674,6 +674,85 @@ Frame_ControlHandle_Method Frame_GetControlHandleMethod(Object this)
 
 
 
+
+
+
+Int Frame_GetDrawHandle(Object this)
+{
+    Frame_DrawHandle_Method method;
+
+    method = Frame_GetDrawHandleMethod(this);
+
+
+
+    Int o;
+
+    o = CastInt(method);
+
+
+
+    Int ret;
+
+    ret = o;
+
+
+    return ret;
+}
+
+
+
+
+
+
+Bool Frame_SetDrawHandle(Object this, Int value)
+{
+    Frame* m;
+    
+    m = CastPointer(this);
+
+
+
+    Frame_DrawHandle_Method method;
+
+    method = CastPointer(value);
+
+
+
+    m->DrawHandle = method;
+
+
+    return true;
+}
+
+
+
+
+
+Frame_DrawHandle_Method Frame_GetDrawHandleMethod(Object this)
+{
+    Frame* m;
+    
+    m = CastPointer(this);
+
+
+
+
+    Frame_DrawHandle_Method method;
+
+    method = m->DrawHandle;
+
+
+
+    return method;
+}
+
+
+
+
+
+
+
+
 Object Frame_GetFrame(HWND hwnd)
 {
     LONG_PTR o;
