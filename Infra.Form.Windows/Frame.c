@@ -572,7 +572,9 @@ Bool Frame_Update(Object this)
 
 Bool Frame_SetControlHandle(Object this, Frame_ControlHandle_Method value)
 {
-    Frame* m = CastPointer(this);
+    Frame* m;
+    
+    m = CastPointer(this);
 
 
 
