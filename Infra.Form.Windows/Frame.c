@@ -39,7 +39,9 @@ Bool Frame_SetTitle(Object this, Object value)
 
 Bool Frame_Init(Object this)
 {
-    Frame* m = CastPointer(this);
+    Frame* m;
+    
+    m = CastPointer(this);
 
 
 
@@ -56,49 +58,10 @@ Bool Frame_Init(Object this)
 
 
 
-    Object lockRect = Rect_New();
-
-
-    Rect_Init(lockRect);
-
-
-
-    Object lockRectPos = Pos_New();
-
-
-    Pos_Init(lockRectPos);
-
-
-
-    Object lockRectSize = Size_New();
-
-
-    Size_Init(lockRectSize);
-
-
-
-
-
-    Rect_SetPos(lockRect, lockRectPos);
-
-
-
-    Rect_SetSize(lockRect, lockRectSize);
-
-
-
-
-    m->LockRect = lockRect;
-
-
-
-
 
     Frame_InitWindow(m);
 
 
-
-    Frame_InitBitmap(m);
 
 
 
@@ -110,7 +73,9 @@ Bool Frame_Init(Object this)
 
 Bool Frame_Final(Object this)
 {
-    Frame* m = CastPointer(this);
+    Frame* m;
+    
+    m = CastPointer(this);
 
 
 
@@ -122,40 +87,14 @@ Bool Frame_Final(Object this)
 
 
 
+    Int u;
 
-    Delete(CastInt(m->WindowTitle));
-
-
-
-
-    Object lockRect = m->LockRect;
+    u = CastInt(m->WindowTitle);
 
 
-    Object lockPos = Rect_GetPos(lockRect);
+    Delete(u);
 
 
-    Object lockSize = Rect_GetSize(lockRect);
-
-
-
-    Pos_Final(lockPos);
-
-
-    Pos_Delete(lockPos);
-
-
-
-    Size_Final(lockSize);
-
-    
-    Size_Delete(lockSize);
-
-
-
-    Rect_Final(lockRect);
-
-
-    Rect_Delete(lockRect);
 
 
 
@@ -178,7 +117,7 @@ Bool Frame_InitWindow(Frame* this)
     HINSTANCE hInstance = this->HInstance;
 
 
-    WCHAR* className  = L"Machine Window Class";
+    WCHAR* className  = L"Frame Window Class";
 
 
     WNDCLASSEXW wc = { 0 };
@@ -356,6 +295,7 @@ Bool Frame_InitWindowSize(Frame* this)
 
 
 
+
     Int width = right - left;
 
 
@@ -363,7 +303,10 @@ Bool Frame_InitWindowSize(Frame* this)
 
 
 
-    Object size = this->Size;
+
+    Object size;
+    
+    size = this->Size;
 
 
 
@@ -404,170 +347,7 @@ LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit)
 
 
 
-Bool Frame_InitBitmap(Frame* this)
-{
-    Object size = this->Size;
 
-
-    Int width = Size_GetWidth(size);
-
-
-    Int height = Size_GetHeight(size);
-
-
-
-
-    int u = 0;
-
-
-
-    u = (int)width;
-
-
-    LONG w = u;
-
-
-
-    u = (int)height;
-
-
-    LONG h = u;
-
-
-
-    BITMAPINFO bitmapInfo = { 0 };
-
-    
-    BITMAPINFOHEADER bmiHeader = { 0 };
-
-    bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
-    
-    bmiHeader.biWidth = w;
-    
-    bmiHeader.biHeight = - h;
-    
-    bmiHeader.biPlanes = 1;
-    
-    bmiHeader.biBitCount = 32;
-
-    bmiHeader.biCompression = BI_RGB;
-
-    bmiHeader.biSizeImage = 0;
-
-    bmiHeader.biXPelsPerMeter = 0;
-
-    bmiHeader.biYPelsPerMeter = 0;
-
-    bmiHeader.biClrUsed = 0;
-
-    bmiHeader.biClrImportant = 0;
-
-
-    bitmapInfo.bmiHeader = bmiHeader;
-
-
-    RGBQUAD d = { 0 };
-    
-    d.rgbRed = 0;
-
-    d.rgbGreen = 0;
-    
-    d.rgbBlue = 0;
-    
-    d.rgbReserved = 0;
-
-
-    bitmapInfo.bmiColors[0] = d;
-
-
-
-    void* pixelsDataBuffer = null;
-
-
-    HBITMAP hBitmap = Windows_CreateDIBSection(null, &bitmapInfo, DIB_RGB_COLORS, &pixelsDataBuffer, null, 0);
-
-
-
-
-    Int32* pixelsData = (Int32*)pixelsDataBuffer;
-
-
-
-    this->HBitmap = hBitmap;
-
-
-    this->Pixels = pixelsData;
-
-
-
-    Frame_InitBitmapBuffer(this);
-
-
-
-
-    HDC srcDc = Windows_CreateCompatibleDC(this->Hdc);
-
-
-    this->SrcDc = srcDc;
-    
-
-    Windows_SelectObject(this->SrcDc, this->HBitmap);
-
-
-    return true;
-}
-
-
-
-
-Bool Frame_InitBitmapBuffer(Frame* this)
-{
-    Int32 color = 0x000000ff;
-
-
-    Object size = this->Size;
-
-
-
-    Int32 width = (Int32)Size_GetWidth(size);
-
-
-    Int32 height = (Int32)Size_GetHeight(size);
-
-
-    Int32* pixels = this->Pixels;
-
-
-
-    Int32 i = 0;
-
-    Int32 j = 0;
-
-    Int32 u = 0;
-
-
-    i = 0;
-
-    while (i < height)
-    {
-        j = 0;
-
-        while (j < width)
-        {
-            u = i * width + j;
-
-            pixels[u] = color;
-
-
-            j++;
-        }
-
-        i++;
-    }
-
-
-    return true;
-}
 
 
 
