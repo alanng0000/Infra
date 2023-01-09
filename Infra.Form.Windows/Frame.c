@@ -479,7 +479,9 @@ Bool Frame_CopyString(Object this, WCHAR* result, Object string)
 
 Bool Frame_GetVisible(Object this)
 {
-    Frame* m = CastPointer(this);
+    Frame* m;
+    
+    m = CastPointer(this);
 
 
     return m->Visible;
@@ -491,7 +493,9 @@ Bool Frame_GetVisible(Object this)
 
 Bool Frame_SetVisible(Object this, Bool value)
 {
-    Frame* m = CastPointer(this);
+    Frame* m;
+    
+    m = CastPointer(this);
 
 
 
