@@ -334,6 +334,23 @@ Bool ControlHandleConsoleWriteKeyValue(Int controlKey, Int controlValue)
 
 
 
+Int DrawBrush;
+
+
+
+Bool DrawHandle(Object draw)
+{
+    Draw_Rect(draw, 100, 100, 100, 100, DrawBrush);
+
+
+
+
+
+    return true;
+}
+
+
+
 
 Bool ControlHandle(Object frame, Int key, Int value)
 {
@@ -559,6 +576,16 @@ Bool FrameExecute()
     
 
 
+    Int uv;
+
+    uv = CastInt(&DrawHandle);
+
+
+
+
+    DrawBrush = Draw_CreateColorBrush(255, 0, 0);
+
+
 
 
     Object frame = Frame_New();
@@ -573,7 +600,13 @@ Bool FrameExecute()
 
 
 
+
     Frame_SetControlHandle(frame, uu);
+
+
+
+
+    Frame_SetDrawHandle(frame, uv);
 
 
 
