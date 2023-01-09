@@ -123,7 +123,15 @@ Bool Frame_InitWindow(Object this)
     HINSTANCE hInstance = m->HInstance;
 
 
+
     WCHAR* className  = L"Frame Window Class";
+
+
+
+    HBRUSH hbrush;
+
+    hbrush = Windows_CreateSolidBrush(RGB(255, 255, 255));
+
 
 
     WNDCLASSEXW wc = { 0 };
@@ -134,6 +142,7 @@ Bool Frame_InitWindow(Object this)
     wc.lpfnWndProc   = WindowProc;
     wc.hInstance     = hInstance;
     wc.lpszClassName = className;
+    wc.hbrBackground = hbrush;
     wc.hCursor = NULL;
 
 
