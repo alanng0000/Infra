@@ -3490,6 +3490,11 @@ Bool SpeedDemoExecute()
 
 
 
+Int FrameFont;
+
+
+
+
 
 Bool FontExecute()
 {
@@ -3506,9 +3511,8 @@ Bool FontExecute()
 
 
 
-    Int font;
 
-    font = Font_Create(length, u, 20, 700, true, false);
+    FrameFont = Font_Create(length, u, 20, 700, true, false);
 
 
 
@@ -3520,6 +3524,10 @@ Bool FontExecute()
 
 
     ConsoleWriteCharArray(o);
+
+
+
+    
 
 
 
@@ -3570,13 +3578,15 @@ int main(int argc, char* argv[])
 
 
 
+    FontExecute();
+
+
+
+
+
     FrameExecute();
 
 
-
-
-
-    FontExecute();
 
 
 
