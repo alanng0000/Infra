@@ -7,3 +7,8 @@
 
 
 
+typedef struct
+{
+    HDC Hdc;
+}
+Draw;
