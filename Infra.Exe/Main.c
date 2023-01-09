@@ -334,23 +334,6 @@ Bool ControlHandleConsoleWriteKeyValue(Int controlKey, Int controlValue)
 
 
 
-Int DrawBrush;
-
-
-
-Bool DrawHandle(Object draw)
-{
-    Draw_Rect(draw, 100, 100, 100, 100, DrawBrush);
-
-
-
-
-
-    return true;
-}
-
-
-
 
 Bool ControlHandle(Object frame, Int key, Int value)
 {
@@ -381,119 +364,119 @@ Bool ControlHandle(Object frame, Int key, Int value)
 
 
 
-    // Int l = 100;
+    Int l = 100;
 
 
-    // Int t = 100;
+    Int t = 100;
 
 
 
-    // Int w = 100;
+    Int w = 100;
 
 
-    // Int h = 100;
+    Int h = 100;
 
 
 
-    // Object drawPos = Rect_GetPos(DrawRect);
+    Object drawPos = Rect_GetPos(DrawRect);
 
-    // Object drawSize = Rect_GetSize(DrawRect);
+    Object drawSize = Rect_GetSize(DrawRect);
 
 
-    // Pos_SetLeft(drawPos, l);
+    Pos_SetLeft(drawPos, l);
 
-    // Pos_SetUp(drawPos, t);
+    Pos_SetUp(drawPos, t);
 
 
-    // Size_SetWidth(drawSize, w);
+    Size_SetWidth(drawSize, w);
 
-    // Size_SetHeight(drawSize, h);
+    Size_SetHeight(drawSize, h);
 
 
 
 
 
-    // Object size = Frame_GetSize(frame);
+    Object size = Frame_GetSize(frame);
 
 
 
-    // Int width = Size_GetWidth(size);
+    Int width = Size_GetWidth(size);
 
 
 
-    // Int height = Size_GetHeight(size);
+    Int height = Size_GetHeight(size);
 
 
 
 
-    // Int32 ot = ColorComp;
+    Int32 ot = ColorComp;
 
 
 
-    // Int32 color = ot << 16;
+    Int32 color = ot << 16;
 
 
 
 
-    // Int32* pixels = Frame_LockPixels(frame, DrawRect);
+    Int32* pixels = Frame_LockPixels(frame, DrawRect);
 
 
 
 
-    // Int index = 0;
+    Int index = 0;
 
 
 
-    // Int row = 0;
+    Int row = 0;
 
 
-    // Int col = 0;
+    Int col = 0;
 
 
 
 
-    // Int r = 0;
+    Int r = 0;
 
-    // Int c = 0;
+    Int c = 0;
 
 
-    // r = 0;
+    r = 0;
 
 
-    // while (r < h)
-    // {
-    //     c = 0;
+    while (r < h)
+    {
+        c = 0;
 
 
-    //     while (c < w)
-    //     {
-    //         row = r + t;
+        while (c < w)
+        {
+            row = r + t;
 
 
-    //         col = c + l;
+            col = c + l;
 
 
 
-    //         index = row * width + col;
+            index = row * width + col;
 
 
-    //         pixels[index] = color;
+            pixels[index] = color;
 
 
 
 
-    //         c++;
-    //     }
+            c++;
+        }
 
 
-    //     r++;
-    // }
+        r++;
+    }
 
 
 
 
 
-    // Frame_UnlockPixels(frame);
+    Frame_UnlockPixels(frame);
 
 
 
@@ -543,7 +526,7 @@ Bool FrameExecute()
 
 
 
-    Int os = CastInt("Infra Demo Frame");
+    Int os = CastInt("Machine Tester");
 
 
 
@@ -570,22 +553,6 @@ Bool FrameExecute()
 
 
 
-    Int uu;
-
-    uu = CastInt(&ControlHandle);
-    
-
-
-    Int uv;
-
-    uv = CastInt(&DrawHandle);
-
-
-
-
-    DrawBrush = Draw_CreateColorBrush(0, 0, 255);
-
-
 
 
     Object frame = Frame_New();
@@ -600,13 +567,7 @@ Bool FrameExecute()
 
 
 
-
-    Frame_SetControlHandle(frame, uu);
-
-
-
-
-    Frame_SetDrawHandle(frame, uv);
+    Frame_SetControlHandle(frame, &ControlHandle);
 
 
 
@@ -642,7 +603,6 @@ Bool FrameExecute()
 
     return true;
 }
-
 
 
 
@@ -3530,51 +3490,6 @@ Bool SpeedDemoExecute()
 
 
 
-Int FrameFont;
-
-
-
-
-
-Bool FontExecute()
-{
-    Int u;
-
-    u = CastInt("Cascadia Mono");
-
-
-
-    Int length;
-
-    length = String_ConstantLength(u);
-
-
-
-
-
-    FrameFont = Font_Create(length, u, 20, 700, true, false);
-
-
-
-
-    Int o;
-
-    o = CastInt("Font Create Call Done\n");
-
-
-
-    ConsoleWriteCharArray(o);
-
-
-
-    
-
-
-
-    return true;
-}
-
-
 
 
 
@@ -3618,14 +3533,7 @@ int main(int argc, char* argv[])
 
 
 
-    FontExecute();
-
-
-
-
-
     FrameExecute();
-
 
 
 

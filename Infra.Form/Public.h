@@ -3,7 +3,7 @@
 
 
 #include <Infra/Public.h>
-#include <Infra.Form.Infra/Public.h>
+
 
 
 
@@ -59,35 +59,8 @@ typedef Bool (*Frame_ControlHandle_Method)(Object frame, Int key, Int value);
 
 
 
-typedef Bool (*Frame_DrawHandle_Method)(Object draw);
-
-
-
-
-
-
 Infra_Form_Api
-Int Frame_GetControlHandle(Object this);
-
-
-
-
-Infra_Form_Api
-Bool Frame_SetControlHandle(Object this, Int value);
-
-
-
-
-
-Infra_Form_Api
-Int Frame_GetDrawHandle(Object this);
-
-
-
-
-Infra_Form_Api
-Bool Frame_SetDrawHandle(Object this, Int value);
-
+Bool Frame_SetControlHandle(Object this, Frame_ControlHandle_Method value);
 
 
 
@@ -101,7 +74,14 @@ Object Frame_GetSize(Object this);
 
 
 Infra_Form_Api
-Bool Frame_Update(Object this);
+Int32* Frame_LockPixels(Object this, Object rect);
+
+
+
+
+
+Infra_Form_Api
+Bool Frame_UnlockPixels(Object this);
 
 
 
@@ -116,50 +96,6 @@ Bool Frame_Execute(Object this);
 
 Infra_Form_Api
 Bool Frame_Close(Object this);
-
-
-
-
-
-
-Infra_Form_Api
-Object Frame_GetDraw(Object this);
-
-
-
-
-
-
-
-
-
-Infra_Form_Api
-Int Draw_CreateColorBrush(Int red, Int green, Int blue);
-
-
-
-
-
-
-
-Infra_Form_Api
-Bool Draw_Rect(Object this, int left, int up, Int width, Int height, Int brush);
-
-
-
-
-
-
-
-
-
-
-Infra_Form_Api
-Bool Draw_SelectFont(Object this, Int font);
-
-
-
-
 
 
 
@@ -465,14 +401,6 @@ Int Storage_Write(Object this, Object data);
 
 Infra_Form_Api
 Bool Storage_Offset(Object this, Int offset, Int origin);
-
-
-
-
-
-Infra_Form_Api
-Int Font_Create(Int nameLength, Int name, Int size, Int weight, Bool italic, Bool underline);
-
 
 
 

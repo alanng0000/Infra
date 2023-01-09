@@ -39,9 +39,7 @@ Bool Frame_SetTitle(Object this, Object value)
 
 Bool Frame_Init(Object this)
 {
-    Frame* m;
-    
-    m = CastPointer(this);
+    Frame* m = CastPointer(this);
 
 
 
@@ -58,14 +56,49 @@ Bool Frame_Init(Object this)
 
 
 
-
-    Frame_InitWindow(this);
-
+    Object lockRect = Rect_New();
 
 
+    Rect_Init(lockRect);
 
-    Frame_InitDraw(this);
 
+
+    Object lockRectPos = Pos_New();
+
+
+    Pos_Init(lockRectPos);
+
+
+
+    Object lockRectSize = Size_New();
+
+
+    Size_Init(lockRectSize);
+
+
+
+
+
+    Rect_SetPos(lockRect, lockRectPos);
+
+
+
+    Rect_SetSize(lockRect, lockRectSize);
+
+
+
+
+    m->LockRect = lockRect;
+
+
+
+
+
+    Frame_InitWindow(m);
+
+
+
+    Frame_InitBitmap(m);
 
 
 
@@ -75,24 +108,9 @@ Bool Frame_Init(Object this)
 
 
 
-
 Bool Frame_Final(Object this)
 {
-    Frame* m;
-
-
-    m = CastPointer(this);
-
-
-
-
-    Draw_Final(m->Draw);
-
-
-
-    Draw_Delete(m->Draw);
-
-
+    Frame* m = CastPointer(this);
 
 
 
@@ -104,86 +122,40 @@ Bool Frame_Final(Object this)
 
 
 
-    Int u;
 
-    u = CastInt(m->WindowTitle);
-
-
-    Delete(u);
+    Delete(CastInt(m->WindowTitle));
 
 
 
 
-
-    return true;
-}
+    Object lockRect = m->LockRect;
 
 
+    Object lockPos = Rect_GetPos(lockRect);
 
 
-
-Bool Frame_InitDraw(Object this)
-{
-    Frame* m;
-
-    m = CastPointer(this);
+    Object lockSize = Rect_GetSize(lockRect);
 
 
 
-
-    Object draw;
-
+    Pos_Final(lockPos);
 
 
-    draw = Draw_New();
+    Pos_Delete(lockPos);
 
 
 
-    Draw_Init(draw);
+    Size_Final(lockSize);
+
+    
+    Size_Delete(lockSize);
 
 
 
+    Rect_Final(lockRect);
 
 
-    Object size;
-
-    size = m->Size;
-
-
-
-
-    Int width;
-
-    width = Size_GetWidth(size);
-
-
-
-    Int height;
-
-    height = Size_GetHeight(size);
-
-
-
-
-
-    Object drawSize;
-
-
-    drawSize = Draw_GetSize(draw);
-
-
-
-
-    Size_SetWidth(drawSize, width);
-
-
-
-    Size_SetHeight(drawSize, height);
-
-
-
-
-    m->Draw = draw;
+    Rect_Delete(lockRect);
 
 
 
@@ -194,31 +166,19 @@ Bool Frame_InitDraw(Object this)
 
 
 
-Bool Frame_InitWindow(Object this)
+
+
+Bool Frame_InitWindow(Frame* this)
 {
-    Frame* m;
-
-    m = CastPointer(this);
-
-
-
     Frame_InitWindowTitle(this);
 
 
 
 
-    HINSTANCE hInstance = m->HInstance;
+    HINSTANCE hInstance = this->HInstance;
 
 
-
-    WCHAR* className  = L"Frame Window Class";
-
-
-
-    HBRUSH hbrush;
-
-    hbrush = Windows_CreateSolidBrush(RGB(255, 255, 255));
-
+    WCHAR* className  = L"Machine Window Class";
 
 
     WNDCLASSEXW wc = { 0 };
@@ -229,7 +189,6 @@ Bool Frame_InitWindow(Object this)
     wc.lpfnWndProc   = WindowProc;
     wc.hInstance     = hInstance;
     wc.lpszClassName = className;
-    wc.hbrBackground = hbrush;
     wc.hCursor = NULL;
 
 
@@ -237,7 +196,7 @@ Bool Frame_InitWindow(Object this)
     
 
 
-    WCHAR* title = m->WindowTitle;
+    WCHAR* title = this->WindowTitle;
 
 
     HWND hwnd = Windows_CreateWindowExW(
@@ -255,11 +214,11 @@ Bool Frame_InitWindow(Object this)
 
 
 
-    m->Hwnd = hwnd;
+    this->Hwnd = hwnd;
 
 
 
-    m->Hdc = Windows_GetDC(m->Hwnd);
+    this->Hdc = Windows_GetDC(this->Hwnd);
 
 
 
@@ -267,7 +226,7 @@ Bool Frame_InitWindow(Object this)
     LONG_PTR o = (LONG_PTR)this;
 
 
-    Windows_SetWindowLongPtrW(m->Hwnd, GWLP_USERDATA, o);
+    Windows_SetWindowLongPtrW(this->Hwnd, GWLP_USERDATA, o);
 
 
 
@@ -288,15 +247,9 @@ Bool Frame_InitWindow(Object this)
 
 
 
-Bool Frame_InitWindowTitle(Object this)
+Bool Frame_InitWindowTitle(Frame* this)
 {
-    Frame* m;
-
-    m = CastPointer(this);
-
-
-
-    Object title = m->Title;
+    Object title = this->Title;
 
 
 
@@ -312,23 +265,15 @@ Bool Frame_InitWindowTitle(Object this)
 
 
 
-    Int o;
-
-    o = New(size);
+    WCHAR* u = CastPointer(New(size));
 
 
 
-    WCHAR* u;
-    
-    u = CastPointer(o);
+    Frame_CopyString(u, title);
 
 
 
-    Frame_CopyString(this, u, title);
-
-
-
-    m->WindowTitle = u;
+    this->WindowTitle = u;
 
 
 
@@ -339,19 +284,9 @@ Bool Frame_InitWindowTitle(Object this)
 
 
 
-Bool Frame_InitWindowStyle(Object this)
+Bool Frame_InitWindowStyle(Frame* this)
 {
-    Frame* m;
-
-    m = CastPointer(this);
-
-
-
-
-    HWND hwnd;
-    
-    hwnd = m->Hwnd;
-
+    HWND hwnd = this->Hwnd;
 
 
     LONG_PTR d = Windows_GetWindowLongPtrW(hwnd, GWL_STYLE);
@@ -384,29 +319,18 @@ Bool Frame_InitWindowStyle(Object this)
 
 
 
-
-Bool Frame_InitWindowSize(Object this)
+Bool Frame_InitWindowSize(Frame* this)
 {
-    Frame* m;
-
-
-    m = CastPointer(this);
+    int w = Windows_GetDeviceCaps(this->Hdc, HORZRES);
 
 
 
-
-    int w = Windows_GetDeviceCaps(m->Hdc, HORZRES);
-
-
-
-    int h = Windows_GetDeviceCaps(m->Hdc, VERTRES);
+    int h = Windows_GetDeviceCaps(this->Hdc, VERTRES);
 
 
 
 
-    HWND hwnd;
-    
-    hwnd = m->Hwnd;
+    HWND hwnd = this->Hwnd;
 
 
     Windows_SetWindowPos(hwnd, HWND_TOP, 0, 0, w, h, SWP_NOZORDER);
@@ -432,7 +356,6 @@ Bool Frame_InitWindowSize(Object this)
 
 
 
-
     Int width = right - left;
 
 
@@ -440,10 +363,7 @@ Bool Frame_InitWindowSize(Object this)
 
 
 
-
-    Object size;
-    
-    size = m->Size;
+    Object size = this->Size;
 
 
 
@@ -455,7 +375,6 @@ Bool Frame_InitWindowSize(Object this)
 
     return true;
 }
-
 
 
 
@@ -475,10 +394,7 @@ LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit)
     d = d & m;
 
 
-
-    LONG_PTR ret;
-    
-    ret = d;
+    LONG_PTR ret = d;
 
     return ret;
 }
@@ -487,10 +403,175 @@ LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit)
 
 
 
+Bool Frame_InitBitmap(Frame* this)
+{
+    Object size = this->Size;
+
+
+    Int width = Size_GetWidth(size);
+
+
+    Int height = Size_GetHeight(size);
 
 
 
-Bool Frame_CopyString(Object this, WCHAR* result, Object string)
+
+    int u = 0;
+
+
+
+    u = (int)width;
+
+
+    LONG w = u;
+
+
+
+    u = (int)height;
+
+
+    LONG h = u;
+
+
+
+    BITMAPINFO bitmapInfo = { 0 };
+
+    
+    BITMAPINFOHEADER bmiHeader = { 0 };
+
+    bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+    
+    bmiHeader.biWidth = w;
+    
+    bmiHeader.biHeight = - h;
+    
+    bmiHeader.biPlanes = 1;
+    
+    bmiHeader.biBitCount = 32;
+
+    bmiHeader.biCompression = BI_RGB;
+
+    bmiHeader.biSizeImage = 0;
+
+    bmiHeader.biXPelsPerMeter = 0;
+
+    bmiHeader.biYPelsPerMeter = 0;
+
+    bmiHeader.biClrUsed = 0;
+
+    bmiHeader.biClrImportant = 0;
+
+
+    bitmapInfo.bmiHeader = bmiHeader;
+
+
+    RGBQUAD d = { 0 };
+    
+    d.rgbRed = 0;
+
+    d.rgbGreen = 0;
+    
+    d.rgbBlue = 0;
+    
+    d.rgbReserved = 0;
+
+
+    bitmapInfo.bmiColors[0] = d;
+
+
+
+    void* pixelsDataBuffer = null;
+
+
+    HBITMAP hBitmap = Windows_CreateDIBSection(null, &bitmapInfo, DIB_RGB_COLORS, &pixelsDataBuffer, null, 0);
+
+
+
+
+    Int32* pixelsData = (Int32*)pixelsDataBuffer;
+
+
+
+    this->HBitmap = hBitmap;
+
+
+    this->Pixels = pixelsData;
+
+
+
+    Frame_InitBitmapBuffer(this);
+
+
+
+
+    HDC srcDc = Windows_CreateCompatibleDC(this->Hdc);
+
+
+    this->SrcDc = srcDc;
+    
+
+    Windows_SelectObject(this->SrcDc, this->HBitmap);
+
+
+    return true;
+}
+
+
+
+
+Bool Frame_InitBitmapBuffer(Frame* this)
+{
+    Int32 color = 0x000000ff;
+
+
+    Object size = this->Size;
+
+
+
+    Int32 width = (Int32)Size_GetWidth(size);
+
+
+    Int32 height = (Int32)Size_GetHeight(size);
+
+
+    Int32* pixels = this->Pixels;
+
+
+
+    Int32 i = 0;
+
+    Int32 j = 0;
+
+    Int32 u = 0;
+
+
+    i = 0;
+
+    while (i < height)
+    {
+        j = 0;
+
+        while (j < width)
+        {
+            u = i * width + j;
+
+            pixels[u] = color;
+
+
+            j++;
+        }
+
+        i++;
+    }
+
+
+    return true;
+}
+
+
+
+
+Bool Frame_CopyString(WCHAR* result, Object string)
 {
     Int count = String_GetLength(string);
 
@@ -537,9 +618,7 @@ Bool Frame_CopyString(Object this, WCHAR* result, Object string)
 
 Bool Frame_GetVisible(Object this)
 {
-    Frame* m;
-    
-    m = CastPointer(this);
+    Frame* m = CastPointer(this);
 
 
     return m->Visible;
@@ -551,15 +630,11 @@ Bool Frame_GetVisible(Object this)
 
 Bool Frame_SetVisible(Object this, Bool value)
 {
-    Frame* m;
-    
-    m = CastPointer(this);
+    Frame* m = CastPointer(this);
 
 
 
-    int o;
-    
-    o = SW_HIDE;
+    int o = SW_HIDE;
 
 
     if (value)
@@ -585,9 +660,7 @@ Bool Frame_SetVisible(Object this, Bool value)
 
 Object Frame_GetSize(Object this)
 {
-    Frame* m;
-    
-    m = CastPointer(this);
+    Frame* m = CastPointer(this);
 
 
 
@@ -597,39 +670,169 @@ Object Frame_GetSize(Object this)
 
 
 
-Object Frame_GetDraw(Object this)
+Int32* Frame_LockPixels(Object this, Object rect)
 {
-    Frame* m;
-
-    m = CastPointer(this);
+    Frame* m = CastPointer(this);
 
 
 
-    return m->Draw;
+
+    m->Lock = true;
+
+
+
+
+    Object pos = Rect_GetPos(rect);
+
+
+    Object size = Rect_GetSize(rect);
+
+
+
+    Int left = Pos_GetLeft(pos);
+
+
+    Int up = Pos_GetUp(pos);
+
+
+
+    Int width = Size_GetWidth(size);
+
+
+    Int height = Size_GetHeight(size);
+
+
+
+
+    
+    Object lockRect = m->LockRect;
+
+
+
+    Object lockPos = Rect_GetPos(lockRect);
+
+
+    Object lockSize = Rect_GetSize(lockRect);
+
+
+
+    Pos_SetLeft(lockPos, left);
+
+
+    Pos_SetUp(lockPos, up);
+
+
+
+    Size_SetWidth(lockSize, width);
+
+
+    Size_SetHeight(lockSize, height);
+
+
+
+
+
+    return m->Pixels;
 }
 
 
 
 
-
-Bool Frame_Update(Object this)
+Bool Frame_UnlockPixels(Object this)
 {
-    Frame* m;
-
-
-    m = CastPointer(this);
+    Frame* m = CastPointer(this);
 
 
 
 
-    HWND hwnd;
-    
-    hwnd = m->Hwnd;
+    Frame_AddUpdateRect(m);
 
 
 
 
-    Windows_InvalidateRect(hwnd, NULL, FALSE);
+    m->Lock = false;
+
+
+
+    return true;
+}
+
+
+
+
+Bool Frame_AddUpdateRect(Frame* this)
+{
+    Object rect = this->LockRect;
+
+
+
+    Object pos = Rect_GetPos(rect);
+
+
+    Object size = Rect_GetSize(rect);
+
+
+
+    Int left = Pos_GetLeft(pos);
+
+
+    Int up = Pos_GetUp(pos);
+
+
+
+    Int width = Size_GetWidth(size);
+
+
+    Int height = Size_GetHeight(size);
+
+
+
+
+    Int right = left + width;
+
+
+
+    Int down = up + height;
+
+
+
+
+    int leftT = (int)left;
+
+
+    int upT = (int)up;
+
+
+    int rightT = (int)right;
+
+
+    int downT = (int)down;
+
+
+
+
+    HWND hwnd = this->Hwnd;
+
+
+
+
+    RECT u = { 0 };
+
+
+    u.left = leftT;
+
+
+    u.top = upT;
+
+
+    u.right = rightT;
+
+
+    u.bottom = downT;
+
+
+
+    Windows_InvalidateRect(hwnd, &u, FALSE);
 
 
 
@@ -640,48 +843,14 @@ Bool Frame_Update(Object this)
 
 
 
-Int Frame_GetControlHandle(Object this)
+
+Bool Frame_SetControlHandle(Object this, Frame_ControlHandle_Method value)
 {
-    Frame_ControlHandle_Method method;
-
-    method = Frame_GetControlHandleMethod(this);
+    Frame* m = CastPointer(this);
 
 
 
-    Int o;
-
-    o = CastInt(method);
-
-
-
-    Int ret;
-
-    ret = o;
-
-
-    return ret;
-}
-
-
-
-
-
-
-Bool Frame_SetControlHandle(Object this, Int value)
-{
-    Frame* m;
-    
-    m = CastPointer(this);
-
-
-
-    Frame_ControlHandle_Method method;
-
-    method = CastPointer(value);
-
-
-
-    m->ControlHandle = method;
+    m->ControlHandle = value;
 
 
     return true;
@@ -691,124 +860,16 @@ Bool Frame_SetControlHandle(Object this, Int value)
 
 
 
-Frame_ControlHandle_Method Frame_GetControlHandleMethod(Object this)
+
+Frame* Frame_GetFrame(HWND hwnd)
 {
-    Frame* m;
-    
-    m = CastPointer(this);
+    LONG_PTR o = Windows_GetWindowLongPtrW(hwnd, GWLP_USERDATA);
 
 
+    Frame* p = (Frame*)o;
 
 
-    Frame_ControlHandle_Method method;
-
-    method = m->ControlHandle;
-
-
-
-    return method;
-}
-
-
-
-
-
-
-
-
-Int Frame_GetDrawHandle(Object this)
-{
-    Frame_DrawHandle_Method method;
-
-    method = Frame_GetDrawHandleMethod(this);
-
-
-
-    Int o;
-
-    o = CastInt(method);
-
-
-
-    Int ret;
-
-    ret = o;
-
-
-    return ret;
-}
-
-
-
-
-
-
-Bool Frame_SetDrawHandle(Object this, Int value)
-{
-    Frame* m;
-    
-    m = CastPointer(this);
-
-
-
-    Frame_DrawHandle_Method method;
-
-    method = CastPointer(value);
-
-
-
-    m->DrawHandle = method;
-
-
-    return true;
-}
-
-
-
-
-
-Frame_DrawHandle_Method Frame_GetDrawHandleMethod(Object this)
-{
-    Frame* m;
-    
-    m = CastPointer(this);
-
-
-
-
-    Frame_DrawHandle_Method method;
-
-    method = m->DrawHandle;
-
-
-
-    return method;
-}
-
-
-
-
-
-
-
-
-Object Frame_GetFrame(HWND hwnd)
-{
-    LONG_PTR o;
-    
-    o = Windows_GetWindowLongPtrW(hwnd, GWLP_USERDATA);
-
-
-
-    Object p;
-    
-    p = o;
-
-
-
-    Object ret;
-    
-    ret = p;
+    Frame* ret = p;
 
 
     return ret;
@@ -852,6 +913,35 @@ Bool Frame_Execute(Object this)
 
 
 
+Bool Frame_TransferBlock(Frame* this, Int left, Int up, Int width, Int height)
+{
+    int leftT = (int)left;
+
+
+    int upT = (int)up;
+
+
+    int widthT = (int)width;
+
+
+    int heightT = (int)height;
+
+
+
+    Windows_BitBlt(
+        this->Hdc, 
+        leftT, upT, widthT, heightT,
+        this->SrcDc,
+        leftT, upT,
+        SRCCOPY
+        );
+
+
+    return true;
+}
+
+
+
 
 
 Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
@@ -863,7 +953,11 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
     {
         case WM_PAINT:
         {
-            HWND uu = (HWND)hwnd;
+            HWND o = (HWND)hwnd;
+
+
+
+            Frame* frame = Frame_GetFrame(o);
 
 
 
@@ -871,60 +965,40 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
-            HDC hdc;
-            
-            hdc = Windows_BeginPaint(uu, &ot);
+            HDC hdc = Windows_BeginPaint(o, &ot);
 
 
 
-            
-            Object frame;
-            
-            frame = Frame_GetFrame(uu);
-
+            RECT t = ot.rcPaint;
             
 
 
-            Int oo;
-
-            oo = CastInt(hdc);
+            Int left = t.left;
 
 
+            Int up = t.top;
 
 
-            Frame_DrawHandle_Method method;
 
-            method = Frame_GetDrawHandleMethod(frame);
-
+            Int right = t.right;
 
             
-
-            Object draw;
-
-            draw = Frame_GetDraw(frame);
+            Int down = t.bottom;
 
 
 
-
-            Draw_SetHandle(draw, oo);
-
+            Int width = right - left;
 
 
-            
-            if (!(method == null))
-            {
-                method(draw);
-            }
+            Int height = down - up;
 
 
 
-
-            Draw_SetHandle(draw, 0);
-
+            Frame_TransferBlock(frame, left, up, width, height);
 
 
 
-            Windows_EndPaint(uu, &ot);
+            Windows_EndPaint(o, &ot);
         }
         handled = true;
         break;
@@ -935,27 +1009,18 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
             Byte key = (Byte)wParam;
 
 
-            HWND uu = (HWND)hwnd;
+            HWND o = (HWND)hwnd;
+
+
+            Frame* frame = Frame_GetFrame(o);
 
 
 
-            Object frame;
-            
-            frame = Frame_GetFrame(uu);
+            Object h = (Object)frame;
 
 
 
-
-            Frame_ControlHandle_Method method;
-
-            method = Frame_GetControlHandleMethod(frame);
-            
-
-            
-            if (!(method == null))
-            {
-                method(frame, key, true);
-            }
+            frame->ControlHandle(h, key, true);
         }
         handled = true;
         break;
@@ -966,27 +1031,18 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
             Byte key = (Byte)wParam;
 
 
-            HWND uu = (HWND)hwnd;
+            HWND o = (HWND)hwnd;
+
+
+            Frame* frame = Frame_GetFrame(o);
 
 
 
-            Object frame;
-            
-            frame = Frame_GetFrame(uu);
+            Object h = (Object)frame;
 
 
 
-
-            Frame_ControlHandle_Method method;
-
-            method = Frame_GetControlHandleMethod(frame);
-            
-
-            
-            if (!(method == null))
-            {
-                method(frame, key, false);
-            }
+            frame->ControlHandle(h, key, false);
         }
         handled = true;
         break;

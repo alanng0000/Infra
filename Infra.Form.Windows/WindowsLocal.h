@@ -112,9 +112,6 @@ HDC Windows_CreateCompatibleDC(HDC hdc);
 HGDIOBJ Windows_SelectObject(HDC hdc, HGDIOBJ h);
 
 
-BOOL Windows_DeleteObject(HGDIOBJ ho);
-
-
 HDC Windows_BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint);
 
 
@@ -125,26 +122,6 @@ BOOL Windows_GetUpdateRect(HWND hWnd, LPRECT lpRect, BOOL bErase);
 
 
 BOOL Windows_BitBlt(HDC hdc, int x, int y, int cx, int cy, HDC hdcSrc, int x1, int y1, DWORD rop);
-
-
-HBRUSH Windows_CreateSolidBrush(COLORREF color);
-
-
-BOOL Windows_AlphaBlend(HDC hdcDest, int xoriginDest, int yoriginDest, int wDest, int hDest,
-    HDC hdcSrc, int xoriginSrc, int yoriginSrc, int wSrc, int hSrc, BLENDFUNCTION ftn);
-
-
-int Windows_FillRect(HDC hDC, const RECT *lprc, HBRUSH hbr);
-
-
-HFONT Windows_CreateFontA(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, 
-    DWORD bUnderline, DWORD bStrikeOut, DWORD iCharSet, DWORD iOutPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCSTR pszFaceName);
-
-
-BOOL Windows_ExtTextOutA(HDC hdc, int x, int y, UINT options, const RECT *lprect, LPCSTR lpString, UINT c, const INT  *lpDx);
-
-
-COLORREF Windows_SetTextColor(HDC hdc, COLORREF color);
 
 
 HANDLE Windows_LoadImageW(HINSTANCE hInst, LPCWSTR name, UINT type, int cx, int cy, UINT fuLoad);

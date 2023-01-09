@@ -598,30 +598,6 @@ HGDIOBJ Windows_SelectObject(HDC hdc, HGDIOBJ h)
 
 
 
-
-BOOL Windows_DeleteObject(HGDIOBJ ho)
-{
-    Start;
-
-
-    BOOL m = DeleteObject(ho);
-
-
-    End;
-
-
-    Check(!(m == 0));
-
-
-    BOOL ret = m;
-
-    return ret;
-}
-
-
-
-
-
 HDC Windows_BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint)
 {
     Start;
@@ -708,97 +684,6 @@ BOOL Windows_BitBlt(HDC hdc, int x, int y, int cx, int cy, HDC hdcSrc, int x1, i
 
     return ret;
 }
-
-
-
-
-
-HBRUSH Windows_CreateSolidBrush(COLORREF color)
-{
-    Start;
-
-
-    HBRUSH m = CreateSolidBrush(color);
-
-
-    End;
-
-
-    Check(!(m == NULL));
-
-
-    HBRUSH ret = m;
-
-    return ret;
-}
-
-
-
-
-BOOL Windows_AlphaBlend(HDC hdcDest, int xoriginDest, int yoriginDest, int wDest, int hDest,
-    HDC hdcSrc, int xoriginSrc, int yoriginSrc, int wSrc, int hSrc, BLENDFUNCTION ftn)
-{
-    Start;
-
-
-    BOOL m = AlphaBlend(hdcDest, xoriginDest, yoriginDest, wDest, hDest,
-            hdcSrc, xoriginSrc, yoriginSrc, wSrc, hSrc, ftn);
-
-
-    End;
-}
-
-
-
-
-
-int Windows_FillRect(HDC hDC, const RECT *lprc, HBRUSH hbr)
-{
-    Start;
-
-
-    int m = FillRect(hDC, lprc, hbr);
-
-
-    End;
-
-
-    Check(!(m == 0));
-
-
-    int ret = m;
-
-    return ret;
-}
-
-
-
-
-
-
-HFONT Windows_CreateFontA(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, 
-    DWORD bStrikeOut, DWORD iCharSet, DWORD iOutPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCSTR pszFaceName)
-{
-    Start;
-
-
-    HFONT m = CreateFontA(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, 
-        iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pszFaceName);
-
-
-    End;
-
-
-    Check(m != NULL);
-
-
-    HFONT ret = m;
-
-    return ret;
-}
-
-
-
 
 
 

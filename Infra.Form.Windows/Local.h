@@ -49,44 +49,6 @@ Bool Time_ToDate(Int tickCount, Int* year, Int* month, Int* day, Int* hour, Int*
 
 
 
-Object Draw_New();
-
-
-
-
-Bool Draw_Delete(Object o);
-
-
-
-
-Bool Draw_Init(Object this);
-
-
-
-
-Bool Draw_Final(Object this);
-
-
-
-
-
-Int Draw_GetHandle(Object this);
-
-
-
-
-Bool Draw_SetHandle(Object this, Int value);
-
-
-
-
-
-Object Draw_GetSize(Object this);
-
-
-
-
-
 
 
 Object Constants_New();
