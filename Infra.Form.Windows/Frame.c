@@ -499,7 +499,9 @@ Bool Frame_SetVisible(Object this, Bool value)
 
 
 
-    int o = SW_HIDE;
+    int o;
+    
+    o = SW_HIDE;
 
 
     if (value)
