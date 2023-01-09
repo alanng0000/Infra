@@ -664,11 +664,10 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
-            HDC hdc = Windows_BeginPaint(o, &ot);
+            HDC hdc;
+            
+            hdc = Windows_BeginPaint(o, &ot);
 
-
-
-            RECT t = ot.rcPaint;
             
 
 
