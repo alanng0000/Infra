@@ -603,16 +603,9 @@ Bool Frame_Update(Object this)
 
 Int Frame_GetControlHandle(Object this)
 {
-    Frame* m;
-    
-    m = CastPointer(this);
-
-
-
-
     Frame_ControlHandle_Method method;
 
-    method = m->ControlHandle;
+    method = Frame_GetControlHandleMethod(this);
 
 
 
@@ -622,7 +615,12 @@ Int Frame_GetControlHandle(Object this)
 
 
 
-    return o;
+    Int ret;
+
+    ret = o;
+
+
+    return ret;
 }
 
 
@@ -640,7 +638,7 @@ Bool Frame_SetControlHandle(Object this, Int value)
 
     Frame_ControlHandle_Method method;
 
-    method = (Frame_ControlHandle_Method)value;
+    method = CastPointer(value);
 
 
 
@@ -656,17 +654,16 @@ Bool Frame_SetControlHandle(Object this, Int value)
 
 Frame_ControlHandle_Method Frame_GetControlHandleMethod(Object this)
 {
-    Int o;
+    Frame* m;
+    
+    m = CastPointer(this);
 
-
-    o = Frame_GetControlHandle(this);
 
 
 
     Frame_ControlHandle_Method method;
 
-
-    method = CastPointer(o);
+    method = m->ControlHandle;
 
 
 
