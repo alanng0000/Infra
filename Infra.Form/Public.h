@@ -133,9 +133,22 @@ Object Frame_GetDraw(Object this);
 
 
 
+Infra_Form_Api
+Int Draw_CreateColorBrush(Int red, Int green, Int blue);
+
+
+
+
+
+
 
 Infra_Form_Api
-Bool Draw_ColorRect(Object this, Int left, Int up, Int width, Int height, Int color);
+Bool Draw_Rect(Object this, Int left, Int up, Int width, Int height, Int brush);
+
+
+
+
+
 
 
 
