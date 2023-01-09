@@ -32,6 +32,10 @@ typedef struct
 
 
 
+    Frame_DrawHandle_Method DrawHandle;
+
+
+
     Object Title;
 
 
