@@ -135,6 +135,15 @@ Bool Draw_SetHandle(Object this, Int value)
 
 
 
+Bool Draw_ColorRect(Object this, Int left, Int up, Int width, Int height, Int color)
+{
+    
+}
+
+
+
+
+
 
 Bool Draw_SelectFont(Object this, Int font)
 {
