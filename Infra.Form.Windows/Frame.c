@@ -130,22 +130,12 @@ Bool Frame_InitDraw(Object this)
 
 
 
-    Int o;
-
-    o = CastInt(m->Hdc);
-
-
-
 
     Object draw;
 
 
 
     draw = Draw_New();
-
-
-
-    Draw_SetHandle(draw, o);
 
 
 
