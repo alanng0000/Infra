@@ -598,6 +598,30 @@ HGDIOBJ Windows_SelectObject(HDC hdc, HGDIOBJ h)
 
 
 
+
+BOOL Windows_DeleteObject(HGDIOBJ ho)
+{
+    Start;
+
+
+    BOOL m = DeleteObject(ho);
+
+
+    End;
+
+
+    Check(!(m == 0));
+
+
+    BOOL ret = m;
+
+    return ret;
+}
+
+
+
+
+
 HDC Windows_BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint)
 {
     Start;
@@ -713,12 +737,14 @@ HBRUSH Windows_CreateSolidBrush(COLORREF color)
 
 
 
-HFONT Windows_CreateFontA(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, DWORD bStrikeOut, DWORD iCharSet, DWORD iOutPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCSTR pszFaceName)
+HFONT Windows_CreateFontA(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, 
+    DWORD bStrikeOut, DWORD iCharSet, DWORD iOutPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCSTR pszFaceName)
 {
     Start;
 
 
-    HFONT m = CreateFontA(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pszFaceName);
+    HFONT m = CreateFontA(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, 
+        iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pszFaceName);
 
 
     End;

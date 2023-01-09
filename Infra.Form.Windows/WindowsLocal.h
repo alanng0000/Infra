@@ -112,6 +112,9 @@ HDC Windows_CreateCompatibleDC(HDC hdc);
 HGDIOBJ Windows_SelectObject(HDC hdc, HGDIOBJ h);
 
 
+BOOL Windows_DeleteObject(HGDIOBJ ho);
+
+
 HDC Windows_BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint);
 
 
