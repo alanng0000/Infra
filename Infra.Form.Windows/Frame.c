@@ -764,7 +764,7 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
             HDC hdc;
             
-            hdc = Windows_BeginPaint(o, &ot);
+            hdc = Windows_BeginPaint(uu, &ot);
 
             
 
@@ -783,7 +783,7 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
-            
+
 
 
 
