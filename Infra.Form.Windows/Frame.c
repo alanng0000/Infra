@@ -527,7 +527,9 @@ Bool Frame_SetVisible(Object this, Bool value)
 
 Object Frame_GetSize(Object this)
 {
-    Frame* m = CastPointer(this);
+    Frame* m;
+    
+    m = CastPointer(this);
 
 
 
