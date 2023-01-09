@@ -51,3 +51,37 @@ Bool Draw_SetHandle(Object this, Int value)
 
     return true;
 }
+
+
+
+
+
+
+Bool Draw_SelectFont(Object this, Int font)
+{
+    Draw* m;
+
+    m = CastPointer(this);
+
+
+    
+    HDC u;
+
+    u = m->Hdc;
+    
+
+
+
+    HGDIOBJ uu;
+
+    uu = (HGDIOBJ)font;
+
+
+
+
+    Windows_SelectObject(u, uu);
+
+
+
+    return true;
+}

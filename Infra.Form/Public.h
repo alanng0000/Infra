@@ -95,7 +95,8 @@ Bool Frame_Close(Object this);
 
 
 
-
+Infra_Form_Api
+Object Frame_GetDraw(Object this);
 
 
 
