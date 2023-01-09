@@ -107,14 +107,20 @@ Bool Frame_Final(Object this)
 
 
 
-Bool Frame_InitWindow(Frame* this)
+Bool Frame_InitWindow(Object this)
 {
+    Frame* m;
+
+    m = CastPointer(this);
+
+
+
     Frame_InitWindowTitle(this);
 
 
 
 
-    HINSTANCE hInstance = this->HInstance;
+    HINSTANCE hInstance = m->HInstance;
 
 
     WCHAR* className  = L"Frame Window Class";
@@ -135,7 +141,7 @@ Bool Frame_InitWindow(Frame* this)
     
 
 
-    WCHAR* title = this->WindowTitle;
+    WCHAR* title = m->WindowTitle;
 
 
     HWND hwnd = Windows_CreateWindowExW(
@@ -153,19 +159,19 @@ Bool Frame_InitWindow(Frame* this)
 
 
 
-    this->Hwnd = hwnd;
+    m->Hwnd = hwnd;
 
 
 
-    this->Hdc = Windows_GetDC(this->Hwnd);
+    m->Hdc = Windows_GetDC(this->Hwnd);
 
 
 
 
-    LONG_PTR o = (LONG_PTR)this;
+    LONG_PTR o = (LONG_PTR)m;
 
 
-    Windows_SetWindowLongPtrW(this->Hwnd, GWLP_USERDATA, o);
+    Windows_SetWindowLongPtrW(m->Hwnd, GWLP_USERDATA, o);
 
 
 
@@ -186,9 +192,15 @@ Bool Frame_InitWindow(Frame* this)
 
 
 
-Bool Frame_InitWindowTitle(Frame* this)
+Bool Frame_InitWindowTitle(Object this)
 {
-    Object title = this->Title;
+    Frame* m;
+
+    m = CastPointer(this);
+
+
+
+    Object title = m->Title;
 
 
 
@@ -204,7 +216,15 @@ Bool Frame_InitWindowTitle(Frame* this)
 
 
 
-    WCHAR* u = CastPointer(New(size));
+    Int o;
+
+    o = New(size);
+
+
+
+    WCHAR* u;
+    
+    u = CastPointer(o);
 
 
 
