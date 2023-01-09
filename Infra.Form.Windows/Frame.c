@@ -59,7 +59,7 @@ Bool Frame_Init(Object this)
 
 
 
-    Frame_InitWindow(m);
+    Frame_InitWindow(this);
 
 
 
