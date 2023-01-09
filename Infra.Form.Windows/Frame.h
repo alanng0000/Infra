@@ -62,19 +62,19 @@ Bool Frame_CopyString(Object this, WCHAR* result, Object string);
 
 
 
-Bool Frame_InitWindow(Frame* this);
+Bool Frame_InitWindow(Object this);
 
 
 
-Bool Frame_InitWindowTitle(Frame* this);
+Bool Frame_InitWindowTitle(Object this);
 
 
 
-Bool Frame_InitWindowStyle(Frame* this);
+Bool Frame_InitWindowStyle(Object this);
 
 
 
-Bool Frame_InitWindowSize(Frame* this);
+Bool Frame_InitWindowSize(Object this);
 
 
 
@@ -85,13 +85,6 @@ LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit);
 
 
 
-Bool Frame_InitBitmap(Frame* this);
-
-
-
-Bool Frame_InitBitmapBuffer(Frame* this);
-
-
 
 
 Frame* Frame_GetFrame(HWND hwnd);
@@ -100,11 +93,6 @@ Frame* Frame_GetFrame(HWND hwnd);
 
 
 
-Bool Frame_AddUpdateRect(Frame* this);
-
-
-
-Bool Frame_TransferBlock(Frame* frame, Int left, Int up, Int width, Int height);
 
 
 
