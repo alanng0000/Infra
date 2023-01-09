@@ -81,6 +81,12 @@ Bool Draw_SetHandle(Object this, Int value);
 
 
 
+Object Draw_GetSize(Object this);
+
+
+
+
+
 
 
 Object Constants_New();

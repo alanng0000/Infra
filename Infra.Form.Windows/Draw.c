@@ -11,6 +11,15 @@ InfraClassNew(Draw)
 
 Bool Draw_Init(Object this)
 {
+    Draw* m;
+
+    m = CastPointer(this);
+
+
+
+    
+
+
     return true;
 }
 

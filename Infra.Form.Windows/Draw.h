@@ -14,5 +14,7 @@
 typedef struct
 {
     HDC Hdc;
+
+    Object Size;
 }
 Draw;
