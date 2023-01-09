@@ -18,3 +18,9 @@ typedef struct
     Object Size;
 }
 Draw;
+
+
+
+
+
+Bool Draw_SetSize(Object this, Object value);

@@ -11,13 +11,20 @@ InfraClassNew(Draw)
 
 Bool Draw_Init(Object this)
 {
-    Draw* m;
-
-    m = CastPointer(this);
+    Object size;
 
 
 
-    
+    size = Size_New();
+
+
+
+    Size_Init(size);
+
+
+
+    Draw_SetSize(size);
+
 
 
     return true;
@@ -28,6 +35,53 @@ Bool Draw_Init(Object this)
 
 Bool Draw_Final(Object this)
 {
+    Object size;
+
+
+    size = Draw_GetSize(this);
+
+
+
+    Size_Final(size);
+
+
+    Size_Delete(size);
+
+
+
+    return true;
+}
+
+
+
+
+
+
+Object Draw_GetSize(Object this)
+{
+    Draw* m;
+
+    m = CastPointer(this);
+
+
+    return m->Size;
+}
+
+
+
+
+Bool Draw_SetSize(Object this, Object value)
+{
+    Draw* m;
+
+    m = CastPointer(this);
+
+
+
+    m->Size = value;
+
+
+
     return true;
 }
 
