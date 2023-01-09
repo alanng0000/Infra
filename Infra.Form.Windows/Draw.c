@@ -9,6 +9,22 @@ InfraClassNew(Draw)
 
 
 
+Bool Draw_Init(Object this)
+{
+    return true;
+}
+
+
+
+
+Bool Draw_Final(Object this)
+{
+    return true;
+}
+
+
+
+
 
 
 Int Draw_GetHandle(Object this)
