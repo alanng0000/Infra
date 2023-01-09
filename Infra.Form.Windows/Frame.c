@@ -687,7 +687,7 @@ Object Frame_GetFrame(HWND hwnd)
 
     Object p;
     
-    p = CastInt(o);
+    p = o;
 
 
 
@@ -748,11 +748,13 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
     {
         case WM_PAINT:
         {
-            HWND o = (HWND)hwnd;
+            HWND uu = (HWND)hwnd;
 
 
 
-            Frame* frame = Frame_GetFrame(o);
+            Object frame;
+            
+            frame = Frame_GetFrame(uu);
 
 
 
@@ -766,9 +768,26 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
             
 
+            Object draw;
+
+            draw = Frame_GetDraw(frame);
 
 
 
+            Int oo;
+
+            oo = CastInt(hdc);
+
+
+            Draw_SetHandle(draw, oo);
+
+
+
+            
+
+
+
+            Draw_SetHandle(draw, 0);
 
 
 
