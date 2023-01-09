@@ -243,9 +243,19 @@ Bool Frame_InitWindowTitle(Object this)
 
 
 
-Bool Frame_InitWindowStyle(Frame* this)
+Bool Frame_InitWindowStyle(Object this)
 {
-    HWND hwnd = this->Hwnd;
+    Frame* m;
+
+    m = CastPointer(this);
+
+
+
+
+    HWND hwnd;
+    
+    hwnd = m->Hwnd;
+
 
 
     LONG_PTR d = Windows_GetWindowLongPtrW(hwnd, GWL_STYLE);
@@ -278,18 +288,29 @@ Bool Frame_InitWindowStyle(Frame* this)
 
 
 
-Bool Frame_InitWindowSize(Frame* this)
+
+Bool Frame_InitWindowSize(Object this)
 {
-    int w = Windows_GetDeviceCaps(this->Hdc, HORZRES);
+    Frame* m;
+
+
+    m = CastPointer(this);
 
 
 
-    int h = Windows_GetDeviceCaps(this->Hdc, VERTRES);
+
+    int w = Windows_GetDeviceCaps(m->Hdc, HORZRES);
+
+
+
+    int h = Windows_GetDeviceCaps(m->Hdc, VERTRES);
 
 
 
 
-    HWND hwnd = this->Hwnd;
+    HWND hwnd;
+    
+    hwnd = m->Hwnd;
 
 
     Windows_SetWindowPos(hwnd, HWND_TOP, 0, 0, w, h, SWP_NOZORDER);
@@ -326,7 +347,7 @@ Bool Frame_InitWindowSize(Frame* this)
 
     Object size;
     
-    size = this->Size;
+    size = m->Size;
 
 
 
