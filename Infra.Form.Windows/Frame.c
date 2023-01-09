@@ -232,7 +232,7 @@ Bool Frame_InitWindowTitle(Object this)
 
 
 
-    this->WindowTitle = u;
+    m->WindowTitle = u;
 
 
 
