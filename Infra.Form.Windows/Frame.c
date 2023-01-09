@@ -867,12 +867,6 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
-            Object frame;
-            
-            frame = Frame_GetFrame(uu);
-
-
-
             PAINTSTRUCT ot = { 0 };
 
 
@@ -883,10 +877,24 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
+            
+            Object frame;
+            
+            frame = Frame_GetFrame(uu);
+
+            
+
 
             Int oo;
 
             oo = CastInt(hdc);
+
+
+
+
+            Frame_DrawHandle_Method method;
+
+            method = Frame_GetDrawHandleMethod(frame);
 
 
             
@@ -902,6 +910,11 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
+            
+            if (!(method == null))
+            {
+                method(draw);
+            }
 
 
 
