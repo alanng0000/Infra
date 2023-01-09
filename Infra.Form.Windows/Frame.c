@@ -766,6 +766,14 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
             
             hdc = Windows_BeginPaint(uu, &ot);
 
+
+
+
+            Int oo;
+
+            oo = CastInt(hdc);
+
+
             
 
             Object draw;
@@ -773,10 +781,6 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
             draw = Frame_GetDraw(frame);
 
 
-
-            Int oo;
-
-            oo = CastInt(hdc);
 
 
             Draw_SetHandle(draw, oo);
@@ -791,7 +795,8 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
-            Windows_EndPaint(o, &ot);
+
+            Windows_EndPaint(uu, &ot);
         }
         handled = true;
         break;
