@@ -28,19 +28,6 @@ typedef struct
 
 
 
-    Int32* Pixels;
-
-
-
-    Bool Lock;
-
-
-
-    Object LockRect;
-
-
-
-
     Frame_ControlHandle_Method ControlHandle;
 
 
@@ -61,18 +48,9 @@ typedef struct
 
 
 
-    HBITMAP HBitmap;
-
-
-
     HDC Hdc;
-
-
-
-    HDC SrcDc;
-
-
-} Frame;
+}
+Frame;
 
 
 
