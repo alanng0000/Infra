@@ -74,14 +74,7 @@ Object Frame_GetSize(Object this);
 
 
 Infra_Form_Api
-Int32* Frame_LockPixels(Object this, Object rect);
-
-
-
-
-
-Infra_Form_Api
-Bool Frame_UnlockPixels(Object this);
+Bool Frame_Update(Object this);
 
 
 
