@@ -332,7 +332,9 @@ Bool Frame_InitWindowSize(Object this)
 
 
 
-    Object size = this->Size;
+    Object size;
+    
+    size = m->Size;
 
 
 
