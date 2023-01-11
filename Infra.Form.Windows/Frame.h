@@ -53,8 +53,38 @@ typedef struct
 
 
 
-} Frame;
+}
+Frame;
 
+
+
+
+
+
+
+Bool Frame_InitWindow(Object this);
+
+
+
+Bool Frame_InitWindowTitle(Object this);
+
+
+
+Bool Frame_InitWindowStyle(Object this);
+
+
+
+Bool Frame_InitWindowSize(Object this);
+
+
+
+
+LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit);
+
+
+
+
+Object Frame_GetFrame(HWND hwnd);
 
 
 
@@ -65,32 +95,7 @@ Bool Frame_CopyString(WCHAR* result, Object string);
 
 
 
-Bool Frame_InitWindow(Frame* this);
-
-
-
-Bool Frame_InitWindowTitle(Frame* this);
-
-
-
-Bool Frame_InitWindowStyle(Frame* this);
-
-
-
-Bool Frame_InitWindowSize(Frame* this);
-
-
-
-
-LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit);
-
-
-
-
-
-
-Frame* Frame_GetFrame(HWND hwnd);
-
+Frame_ControlHandle_Method Frame_GetControlHandleMethod(Object this);
 
 
 
