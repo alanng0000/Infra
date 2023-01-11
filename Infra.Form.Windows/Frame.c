@@ -768,36 +768,6 @@ Bool Frame_Execute(Object this)
 
 
 
-Bool Frame_TransferBlock(Frame* this, Int left, Int up, Int width, Int height)
-{
-    int leftT = (int)left;
-
-
-    int upT = (int)up;
-
-
-    int widthT = (int)width;
-
-
-    int heightT = (int)height;
-
-
-
-    Windows_BitBlt(
-        this->Hdc, 
-        leftT, upT, widthT, heightT,
-        this->SrcDc,
-        leftT, upT,
-        SRCCOPY
-        );
-
-
-    return true;
-}
-
-
-
-
 
 Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 {
@@ -823,33 +793,6 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
             HDC hdc = Windows_BeginPaint(o, &ot);
 
 
-
-            RECT t = ot.rcPaint;
-            
-
-
-            Int left = t.left;
-
-
-            Int up = t.top;
-
-
-
-            Int right = t.right;
-
-            
-            Int down = t.bottom;
-
-
-
-            Int width = right - left;
-
-
-            Int height = down - up;
-
-
-
-            Frame_TransferBlock(frame, left, up, width, height);
 
 
 
