@@ -98,12 +98,6 @@ Frame* Frame_GetFrame(HWND hwnd);
 
 
 
-
-Bool Frame_TransferBlock(Frame* frame, Int left, Int up, Int width, Int height);
-
-
-
-
 Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam);
 
 
