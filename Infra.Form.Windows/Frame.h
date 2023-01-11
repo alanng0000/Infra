@@ -121,8 +121,6 @@ Frame* Frame_GetFrame(HWND hwnd);
 
 
 
-Bool Frame_AddUpdateRect(Frame* this);
-
 
 
 Bool Frame_TransferBlock(Frame* frame, Int left, Int up, Int width, Int height);

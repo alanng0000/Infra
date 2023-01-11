@@ -670,169 +670,24 @@ Object Frame_GetSize(Object this)
 
 
 
-Int32* Frame_LockPixels(Object this, Object rect)
+
+
+Bool Frame_Update(Object this)
 {
-    Frame* m = CastPointer(this);
+    Frame* m;
+
+    m = CastPointer(this);
 
 
 
-
-    m->Lock = true;
-
-
-
-
-    Object pos = Rect_GetPos(rect);
-
-
-    Object size = Rect_GetSize(rect);
-
-
-
-    Int left = Pos_GetLeft(pos);
-
-
-    Int up = Pos_GetUp(pos);
-
-
-
-    Int width = Size_GetWidth(size);
-
-
-    Int height = Size_GetHeight(size);
-
-
-
-
+    HWND hwnd;
     
-    Object lockRect = m->LockRect;
+    hwnd = m->Hwnd;
 
 
 
-    Object lockPos = Rect_GetPos(lockRect);
 
-
-    Object lockSize = Rect_GetSize(lockRect);
-
-
-
-    Pos_SetLeft(lockPos, left);
-
-
-    Pos_SetUp(lockPos, up);
-
-
-
-    Size_SetWidth(lockSize, width);
-
-
-    Size_SetHeight(lockSize, height);
-
-
-
-
-
-    return m->Pixels;
-}
-
-
-
-
-Bool Frame_UnlockPixels(Object this)
-{
-    Frame* m = CastPointer(this);
-
-
-
-
-    Frame_AddUpdateRect(m);
-
-
-
-
-    m->Lock = false;
-
-
-
-    return true;
-}
-
-
-
-
-Bool Frame_AddUpdateRect(Frame* this)
-{
-    Object rect = this->LockRect;
-
-
-
-    Object pos = Rect_GetPos(rect);
-
-
-    Object size = Rect_GetSize(rect);
-
-
-
-    Int left = Pos_GetLeft(pos);
-
-
-    Int up = Pos_GetUp(pos);
-
-
-
-    Int width = Size_GetWidth(size);
-
-
-    Int height = Size_GetHeight(size);
-
-
-
-
-    Int right = left + width;
-
-
-
-    Int down = up + height;
-
-
-
-
-    int leftT = (int)left;
-
-
-    int upT = (int)up;
-
-
-    int rightT = (int)right;
-
-
-    int downT = (int)down;
-
-
-
-
-    HWND hwnd = this->Hwnd;
-
-
-
-
-    RECT u = { 0 };
-
-
-    u.left = leftT;
-
-
-    u.top = upT;
-
-
-    u.right = rightT;
-
-
-    u.bottom = downT;
-
-
-
-    Windows_InvalidateRect(hwnd, &u, FALSE);
+    Windows_InvalidateRect(hwnd, NULL, FALSE);
 
 
 
