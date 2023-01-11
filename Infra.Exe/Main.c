@@ -3,16 +3,6 @@
 
 
 
-Object DrawRect;
-
-
-
-Byte ColorComp;
-
-
-
-
-
 
 
 
