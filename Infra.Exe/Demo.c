@@ -391,8 +391,19 @@ Bool FrameExecute()
 
 
 
+    Int handle;
+    
+    
+    handle = CastInt(&ControlHandle);
 
-    Object frame = Frame_New();
+
+
+
+
+    Object frame;
+    
+    
+    frame = Frame_New();
     
     
     
@@ -404,7 +415,7 @@ Bool FrameExecute()
 
 
 
-    Frame_SetControlHandle(frame, &ControlHandle);
+    Frame_SetControlHandle(frame, handle);
 
 
 
