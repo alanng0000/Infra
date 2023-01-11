@@ -570,7 +570,7 @@ Object Frame_GetFrame(HWND hwnd)
 
     Object frame;
     
-    frame = CastInt(o);
+    frame = (Object)o;
 
 
 
