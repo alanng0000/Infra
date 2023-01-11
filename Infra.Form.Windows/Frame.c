@@ -107,7 +107,7 @@ Bool Frame_InitWindow(Object this)
 
 
 
-    Frame_InitWindowTitle(m);
+    Frame_InitWindowTitle(this);
 
 
 
