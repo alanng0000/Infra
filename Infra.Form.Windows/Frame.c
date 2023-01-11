@@ -644,7 +644,7 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
             Object frame;
             
-            frame = Frame_GetFrame(o);
+            frame = Frame_GetFrame(hwnd);
 
 
 
@@ -669,16 +669,11 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
             Byte key = (Byte)wParam;
 
 
-            HWND o;
             
-            o = (HWND)hwnd;
-
-
-
             Object frame;
             
 
-            frame = Frame_GetFrame(o);
+            frame = Frame_GetFrame(hwnd);
 
 
 
