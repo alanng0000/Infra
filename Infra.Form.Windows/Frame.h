@@ -28,18 +28,6 @@ typedef struct
 
 
 
-    Int32* Pixels;
-
-
-
-    Bool Lock;
-
-
-
-    Object LockRect;
-
-
-
 
     Frame_ControlHandle_Method ControlHandle;
 
@@ -61,15 +49,10 @@ typedef struct
 
 
 
-    HBITMAP HBitmap;
-
-
 
     HDC Hdc;
 
 
-
-    HDC SrcDc;
 
 
 } Frame;
@@ -104,13 +87,6 @@ Bool Frame_InitWindowSize(Frame* this);
 LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit);
 
 
-
-
-Bool Frame_InitBitmap(Frame* this);
-
-
-
-Bool Frame_InitBitmapBuffer(Frame* this);
 
 
 
