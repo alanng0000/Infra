@@ -364,125 +364,6 @@ Bool ControlHandle(Object frame, Int key, Int value)
 
 
 
-    Int l = 100;
-
-
-    Int t = 100;
-
-
-
-    Int w = 100;
-
-
-    Int h = 100;
-
-
-
-    Object drawPos = Rect_GetPos(DrawRect);
-
-    Object drawSize = Rect_GetSize(DrawRect);
-
-
-    Pos_SetLeft(drawPos, l);
-
-    Pos_SetUp(drawPos, t);
-
-
-    Size_SetWidth(drawSize, w);
-
-    Size_SetHeight(drawSize, h);
-
-
-
-
-
-    Object size = Frame_GetSize(frame);
-
-
-
-    Int width = Size_GetWidth(size);
-
-
-
-    Int height = Size_GetHeight(size);
-
-
-
-
-    Int32 ot = ColorComp;
-
-
-
-    Int32 color = ot << 16;
-
-
-
-
-    Int32* pixels = Frame_LockPixels(frame, DrawRect);
-
-
-
-
-    Int index = 0;
-
-
-
-    Int row = 0;
-
-
-    Int col = 0;
-
-
-
-
-    Int r = 0;
-
-    Int c = 0;
-
-
-    r = 0;
-
-
-    while (r < h)
-    {
-        c = 0;
-
-
-        while (c < w)
-        {
-            row = r + t;
-
-
-            col = c + l;
-
-
-
-            index = row * width + col;
-
-
-            pixels[index] = color;
-
-
-
-
-            c++;
-        }
-
-
-        r++;
-    }
-
-
-
-
-
-    Frame_UnlockPixels(frame);
-
-
-
-
-    ColorComp++;
-
 
 
     return true;
@@ -526,7 +407,7 @@ Bool FrameExecute()
 
 
 
-    Int os = CastInt("Machine Tester");
+    Int os = CastInt("Infra Frame Demo");
 
 
 
