@@ -568,9 +568,11 @@ Object Frame_GetFrame(Int hwnd)
 
 
 
+
     LONG_PTR o;
     
     o = Windows_GetWindowLongPtrW(u, GWLP_USERDATA);
+
 
 
 
