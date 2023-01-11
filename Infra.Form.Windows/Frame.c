@@ -57,7 +57,7 @@ Bool Frame_Init(Object this)
 
 
 
-    Frame_InitWindow(m);
+    Frame_InitWindow(this);
 
 
 
@@ -187,9 +187,17 @@ Bool Frame_InitWindow(Object this)
 
 
 
-Bool Frame_InitWindowTitle(Frame* this)
+Bool Frame_InitWindowTitle(Object this)
 {
-    Object title = this->Title;
+    Frame* m;
+
+    m = CastPointer(this);
+
+
+
+    Object title;
+    
+    title = m->Title;
 
 
 
@@ -205,7 +213,13 @@ Bool Frame_InitWindowTitle(Frame* this)
 
 
 
-    WCHAR* u = CastPointer(New(size));
+    Int p;
+
+    p = New(size);
+
+
+
+    WCHAR* u = CastPointer(p);
 
 
 
@@ -213,7 +227,7 @@ Bool Frame_InitWindowTitle(Frame* this)
 
 
 
-    this->WindowTitle = u;
+    m->WindowTitle = u;
 
 
 
