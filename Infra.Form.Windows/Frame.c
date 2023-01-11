@@ -99,14 +99,20 @@ Bool Frame_Final(Object this)
 
 
 
-Bool Frame_InitWindow(Frame* this)
+Bool Frame_InitWindow(Object this)
 {
-    Frame_InitWindowTitle(this);
+    Frame* m;
+
+    m = CastPointer(this);
+
+
+
+    Frame_InitWindowTitle(m);
 
 
 
 
-    HINSTANCE hInstance = this->HInstance;
+    HINSTANCE hInstance = m->HInstance;
 
 
     WCHAR* className  = L"Machine Window Class";
@@ -127,7 +133,7 @@ Bool Frame_InitWindow(Frame* this)
     
 
 
-    WCHAR* title = this->WindowTitle;
+    WCHAR* title = m->WindowTitle;
 
 
     HWND hwnd = Windows_CreateWindowExW(
@@ -145,19 +151,22 @@ Bool Frame_InitWindow(Frame* this)
 
 
 
-    this->Hwnd = hwnd;
+    m->Hwnd = hwnd;
 
 
 
-    this->Hdc = Windows_GetDC(this->Hwnd);
+    m->Hdc = Windows_GetDC(m->Hwnd);
 
 
 
 
-    LONG_PTR o = (LONG_PTR)this;
+    LONG_PTR o;
+    
+    o = (LONG_PTR)m;
 
 
-    Windows_SetWindowLongPtrW(this->Hwnd, GWLP_USERDATA, o);
+
+    Windows_SetWindowLongPtrW(m->Hwnd, GWLP_USERDATA, o);
 
 
 
@@ -215,9 +224,15 @@ Bool Frame_InitWindowTitle(Frame* this)
 
 
 
-Bool Frame_InitWindowStyle(Frame* this)
+Bool Frame_InitWindowStyle(Object this)
 {
-    HWND hwnd = this->Hwnd;
+    Frame* m;
+
+    m = CastPointer(this);
+
+
+
+    HWND hwnd = m->Hwnd;
 
 
     LONG_PTR d = Windows_GetWindowLongPtrW(hwnd, GWL_STYLE);
@@ -250,18 +265,27 @@ Bool Frame_InitWindowStyle(Frame* this)
 
 
 
-Bool Frame_InitWindowSize(Frame* this)
+Bool Frame_InitWindowSize(Object this)
 {
-    int w = Windows_GetDeviceCaps(this->Hdc, HORZRES);
+    Frame* m;
 
-
-
-    int h = Windows_GetDeviceCaps(this->Hdc, VERTRES);
+    m = CastPointer(this);
 
 
 
 
-    HWND hwnd = this->Hwnd;
+    int w = Windows_GetDeviceCaps(m->Hdc, HORZRES);
+
+
+
+    int h = Windows_GetDeviceCaps(m->Hdc, VERTRES);
+
+
+
+
+    HWND hwnd;
+    
+    hwnd = m->Hwnd;
 
 
     Windows_SetWindowPos(hwnd, HWND_TOP, 0, 0, w, h, SWP_NOZORDER);
