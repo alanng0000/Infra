@@ -363,40 +363,6 @@ Bool ControlHandle(Object frame, Int key, Int value)
 
 Bool FrameExecute()
 {
-    DrawRect = Rect_New();
-
-
-    Rect_Init(DrawRect);
-
-
-
-
-    Object pos = Pos_New();
-
-
-    Pos_Init(pos);
-
-
-
-
-    Object size = Size_New();
-
-
-    Size_Init(size);
-
-
-
-
-    Rect_SetPos(DrawRect, pos);
-
-
-
-    Rect_SetSize(DrawRect, size);
-
-
-
-
-
     Int os = CastInt("Infra Frame Demo");
 
 
