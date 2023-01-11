@@ -481,15 +481,23 @@ Bool Frame_SetControlHandle(Object this, Frame_ControlHandle_Method value)
 
 
 
-Frame* Frame_GetFrame(HWND hwnd)
+Object Frame_GetFrame(HWND hwnd)
 {
-    LONG_PTR o = Windows_GetWindowLongPtrW(hwnd, GWLP_USERDATA);
+    LONG_PTR o;
+    
+    o = Windows_GetWindowLongPtrW(hwnd, GWLP_USERDATA);
 
 
-    Frame* p = (Frame*)o;
+
+    Object frame;
+    
+    frame = CastInt(o);
 
 
-    Frame* ret = p;
+
+    Object ret;
+    
+    ret = frame;
 
 
     return ret;
