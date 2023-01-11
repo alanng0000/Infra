@@ -84,7 +84,7 @@ LONG_PTR Frame_UnsetBit(LONG_PTR value, Int32 bit);
 
 
 
-Object Frame_GetFrame(HWND hwnd);
+Object Frame_GetFrame(Int hwnd);
 
 
 

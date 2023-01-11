@@ -560,11 +560,17 @@ Bool Frame_SetControlHandle(Object this, Int value)
 
 
 
-Object Frame_GetFrame(HWND hwnd)
+Object Frame_GetFrame(Int hwnd)
 {
+    HWND u;
+
+    u = CastPointer(hwnd);
+
+
+
     LONG_PTR o;
     
-    o = Windows_GetWindowLongPtrW(hwnd, GWLP_USERDATA);
+    o = Windows_GetWindowLongPtrW(u, GWLP_USERDATA);
 
 
 
@@ -666,15 +672,25 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
             o = (HWND)hwnd;
 
 
+
             Object frame;
             
+
             frame = Frame_GetFrame(o);
 
 
 
 
+            Frame_ControlHandle_Method method;
 
-            frame->ControlHandle(frame, key, true);
+            method = Frame_GetControlHandleMethod(frame);
+
+
+
+            if (!(method == null))
+            {
+                method(frame, key, true);
+            }
         }
         handled = true;
         break;
