@@ -666,7 +666,9 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
         case WM_KEYDOWN:
         {
-            Byte key = (Byte)wParam;
+            Byte key;
+            
+            key = (Byte)wParam;
 
 
             
@@ -695,21 +697,29 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
         case WM_KEYUP:
         {
-            Byte key = (Byte)wParam;
-
-
-            HWND o = (HWND)hwnd;
-
-
-            Frame* frame = Frame_GetFrame(o);
+            Byte key;
+            
+            key = (Byte)wParam;
 
 
 
-            Object h = (Object)frame;
+            Object frame;
+            
+
+            frame = Frame_GetFrame(hwnd);
 
 
 
-            frame->ControlHandle(h, key, false);
+            Frame_ControlHandle_Method method;
+
+            method = Frame_GetControlHandleMethod(frame);
+
+
+
+            if (!(method == null))
+            {
+                method(frame, key, false);
+            }
         }
         handled = true;
         break;
