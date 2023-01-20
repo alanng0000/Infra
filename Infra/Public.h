@@ -98,10 +98,10 @@ m##_Api \
 Bool c##_Delete(Object o);\
 \
 m##_Api \
-Bool c##_Init(Object this);\
+Bool c##_Init(Object o);\
 \
 m##_Api \
-Bool c##_Final(Object this);\
+Bool c##_Final(Object o);\
 
 
 
@@ -115,10 +115,10 @@ m##_Api \
 Bool m##_##c##_Delete(Object o);\
 \
 m##_Api \
-Bool m##_##c##_Init(Object this);\
+Bool m##_##c##_Init(Object o);\
 \
 m##_Api \
-Bool m##_##c##_Final(Object this);\
+Bool m##_##c##_Final(Object o);\
 
 
 
