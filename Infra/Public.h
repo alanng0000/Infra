@@ -237,39 +237,39 @@ InfraObjectApi(Infra, String)
 
 
 Infra_Api
-Int String_GetLength(Object this);
+Int String_GetLength(Object o);
 
 
 
 
 Infra_Api
-Bool String_SetLength(Object this, Int value);
-
-
-
-
-
-Infra_Api
-Int String_GetData(Object this);
-
-
-
-
-Infra_Api
-Bool String_SetData(Object this, Int value);
+Bool String_SetLength(Object o, Int value);
 
 
 
 
 
 Infra_Api
-Int String_Char(Object this, Int index);
+Int String_GetData(Object o);
 
 
 
 
 Infra_Api
-Bool String_Equal(Object this, Object other);
+Bool String_SetData(Object o, Int value);
+
+
+
+
+
+Infra_Api
+Int String_Char(Object o, Int index);
+
+
+
+
+Infra_Api
+Bool String_Equal(Object o, Object other);
 
 
 
@@ -283,7 +283,7 @@ Int String_ConstantLength(Int o);
 
 
 Infra_Api
-Bool String_Copy(Object this, Int data, Int index, Int length);
+Bool String_Copy(Object o, Int data, Int index, Int length);
 
 
 
@@ -296,57 +296,57 @@ InfraObjectApi(Infra, List)
 
 
 Infra_Api
-Int List_GetCount(Object this);
+Int List_GetCount(Object o);
 
 
 
 
 Infra_Api
-Object List_Add(Object this, Object item);
+Object List_Add(Object o, Object item);
 
 
 
 
 Infra_Api
-Object List_Insert(Object this, Object key, Object item);
+Object List_Insert(Object o, Object key, Object item);
 
 
 
 
 Infra_Api
-Bool List_Remove(Object this, Object key);
+Bool List_Remove(Object o, Object key);
 
 
 
 
 Infra_Api
-Bool List_Contain(Object this, Object key);
-
-
-
-
-
-Infra_Api
-Bool List_Clear(Object this);
+Bool List_Contain(Object o, Object key);
 
 
 
 
 
 Infra_Api
-Object List_Get(Object this, Object key);
+Bool List_Clear(Object o);
 
-
-
-
-Infra_Api
-Bool List_Set(Object this, Object key, Object value);
 
 
 
 
 Infra_Api
-Bool List_Iter(Object this, Object iter);
+Object List_Get(Object o, Object key);
+
+
+
+
+Infra_Api
+Bool List_Set(Object o, Object key, Object value);
+
+
+
+
+Infra_Api
+Bool List_Iter(Object o, Object iter);
 
 
 
@@ -359,13 +359,13 @@ InfraObjectApi(Infra, ListIter)
 
 
 Infra_Api
-Bool ListIter_Next(Object this);
+Bool ListIter_Next(Object o);
 
 
 
 
 Infra_Api
-Object ListIter_Value(Object this);
+Object ListIter_Value(Object o);
 
 
 
@@ -379,7 +379,7 @@ InfraObjectApi(Infra, Console)
 
 
 Infra_Api
-Bool Console_Write(Object this, Object text);
+Bool Console_Write(Object o, Object text);
 
 
 
@@ -392,40 +392,40 @@ InfraObjectApi(Infra, Format)
 
 
 Infra_Api
-Int Format_IntLength(Object this, Int n);
+Int Format_IntLength(Object o, Int n);
 
 
 
 
 Infra_Api
-Bool Format_Int(Object this, Int result, Int n, Int length);
-
-
-
-
-
-Infra_Api
-Int Format_HexIntLength(Object this);
-
-
-
-
-Infra_Api
-Bool Format_HexInt(Object this, Int result, Int n);
+Bool Format_Int(Object o, Int result, Int n, Int length);
 
 
 
 
 
 Infra_Api
-Int Format_HexInt32Length(Object this);
+Int Format_HexIntLength(Object o);
+
+
+
+
+Infra_Api
+Bool Format_HexInt(Object o, Int result, Int n);
 
 
 
 
 
 Infra_Api
-Bool Format_HexInt32(Object this, Int result, Int n);
+Int Format_HexInt32Length(Object o);
+
+
+
+
+
+Infra_Api
+Bool Format_HexInt32(Object o, Int result, Int n);
 
 
 
@@ -441,48 +441,40 @@ Char Format_HexDigit(Int k);
 
 
 Infra_Api
-Object Format_GetBase(Object this);
+Object Format_GetBase(Object o);
 
 
 
 
 Infra_Api
-Bool Format_SetBase(Object this, Object value);
-
-
-
-
-
-Infra_Api
-Int Format_GetArgCount(Object this);
-
-
-
-
-Infra_Api
-Bool Format_SetArgCount(Object this, Int value);
+Bool Format_SetBase(Object o, Object value);
 
 
 
 
 
 Infra_Api
-Bool Format_Open(Object this);
+Int Format_GetArgCount(Object o);
+
+
+
+
+Infra_Api
+Bool Format_SetArgCount(Object o, Int value);
 
 
 
 
 
 Infra_Api
-Bool Format_Close(Object this);
-
+Bool Format_Open(Object o);
 
 
 
 
 
 Infra_Api
-Object Format_Arg(Object this, Int arg);
+Bool Format_Close(Object o);
 
 
 
@@ -490,7 +482,7 @@ Object Format_Arg(Object this, Int arg);
 
 
 Infra_Api
-Int Format_Length(Object this);
+Object Format_Arg(Object o, Int arg);
 
 
 
@@ -498,14 +490,7 @@ Int Format_Length(Object this);
 
 
 Infra_Api
-Object Format_GetString(Object this);
-
-
-
-
-
-Infra_Api
-Bool Format_SetString(Object this, Object value);
+Int Format_Length(Object o);
 
 
 
@@ -513,7 +498,22 @@ Bool Format_SetString(Object this, Object value);
 
 
 Infra_Api
-Bool Format_Result(Object this);
+Object Format_GetString(Object o);
+
+
+
+
+
+Infra_Api
+Bool Format_SetString(Object o, Object value);
+
+
+
+
+
+
+Infra_Api
+Bool Format_Result(Object o);
 
 
 
@@ -526,39 +526,39 @@ InfraObjectApi(Infra, FormatArg)
 
 
 Infra_Api
-Int FormatArg_GetIndex(Object this);
+Int FormatArg_GetIndex(Object o);
 
 
 
 
 
 Infra_Api
-Bool FormatArg_SetIndex(Object this, Int value);
+Bool FormatArg_SetIndex(Object o, Int value);
 
 
 
 
 
 Infra_Api
-Int FormatArg_GetType(Object this);
+Int FormatArg_GetType(Object o);
 
 
 
 
 Infra_Api
-Bool FormatArg_SetType(Object this, Int value);
+Bool FormatArg_SetType(Object o, Int value);
 
 
 
 
 Infra_Api
-Int FormatArg_GetValue(Object this);
+Int FormatArg_GetValue(Object o);
 
 
 
 
 Infra_Api
-Bool FormatArg_SetValue(Object this, Int value);
+Bool FormatArg_SetValue(Object o, Int value);
 
 
 
@@ -573,54 +573,54 @@ InfraObjectApi(Infra, Memory)
 
 
 Infra_Api
-Int Memory_GetData(Object this);
+Int Memory_GetData(Object o);
 
 
 
 
 Infra_Api
-Bool Memory_SetData(Object this, Int value);
-
-
-
-
-
-Infra_Api
-Int Memory_GetByte(Object this, Int index);
-
-
-
-
-Infra_Api
-Bool Memory_SetByte(Object this, Int index, Int value);
+Bool Memory_SetData(Object o, Int value);
 
 
 
 
 
 Infra_Api
-Int Memory_GetInt(Object this, Int index);
+Int Memory_GetByte(Object o, Int index);
 
 
 
 
 Infra_Api
-Bool Memory_SetInt(Object this, Int index, Int value);
+Bool Memory_SetByte(Object o, Int index, Int value);
 
-
-
-
-Infra_Api
-Int Memory_Alloc(Object this, Int size);
 
 
 
 
 Infra_Api
-Bool Memory_Free(Object this, Int address);
+Int Memory_GetInt(Object o, Int index);
 
 
 
 
 Infra_Api
-Bool Memory_Copy(Object this, Int dest, Int source, Int count);
+Bool Memory_SetInt(Object o, Int index, Int value);
+
+
+
+
+Infra_Api
+Int Memory_Alloc(Object o, Int size);
+
+
+
+
+Infra_Api
+Bool Memory_Free(Object o, Int address);
+
+
+
+
+Infra_Api
+Bool Memory_Copy(Object o, Int dest, Int source, Int count);
