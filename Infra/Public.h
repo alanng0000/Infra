@@ -617,7 +617,7 @@ Int Memory_Alloc(Object this, Int size);
 
 
 Infra_Api
-Bool Memory_Free(Object this, Int o);
+Bool Memory_Free(Object this, Int address);
 
 
 
