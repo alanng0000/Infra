@@ -506,6 +506,9 @@ Bool Frame_Update(Object this)
 
 
 
+
+
+
 Frame_ControlHandle_Method Frame_GetControlHandleMethod(Object this)
 {
     Frame* m;
@@ -558,6 +561,67 @@ Bool Frame_SetControlHandle(Object this, Int value)
 
     return true;
 }
+
+
+
+
+
+
+Frame_DrawHandle_Method Frame_GetDrawHandleMethod(Object this)
+{
+    Frame* m;
+    
+    m = CastPointer(this);
+
+
+
+    return m->DrawHandle;
+}
+
+
+
+
+
+
+Int Frame_GetDrawHandle(Object this)
+{
+    Frame_DrawHandle_Method method;
+
+    method = Frame_GetDrawHandleMethod(this);
+
+
+    Int o;
+
+    o = CastInt(method);
+
+
+    return o;
+}
+
+
+
+
+
+Bool Frame_SetDrawHandle(Object this, Int value)
+{
+    Frame* m;
+    
+    m = CastPointer(this);
+
+
+
+    Frame_DrawHandle_Method method;
+
+    method = CastPointer(value);
+
+
+
+    m->DrawHandle = method;
+
+
+    return true;
+}
+
 
 
 
