@@ -126,6 +126,7 @@ Bool Frame_InitWindow(Object this)
     wc.lpfnWndProc   = WindowProc;
     wc.hInstance     = hInstance;
     wc.lpszClassName = className;
+    wc.hbrBackground  = (HBRUSH)GetStockObject(WHITE_BRUSH)
     wc.hCursor = NULL;
 
 
