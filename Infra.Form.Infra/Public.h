@@ -24,25 +24,25 @@ InfraObjectApi(Infra_Form_Infra, Rect)
 
 
 Infra_Form_Infra_Api
-Object Rect_GetPos(Object this);
+Object Rect_GetPos(Object o);
 
 
 
 
 Infra_Form_Infra_Api
-Bool Rect_SetPos(Object this, Object value);
+Bool Rect_SetPos(Object o, Object value);
 
 
 
 
 Infra_Form_Infra_Api
-Object Rect_GetSize(Object this);
+Object Rect_GetSize(Object o);
 
 
 
 
 Infra_Form_Infra_Api
-Bool Rect_SetSize(Object this, Object value);
+Bool Rect_SetSize(Object o, Object value);
 
 
 
@@ -57,25 +57,25 @@ InfraObjectApi(Infra_Form_Infra, Pos)
 
 
 Infra_Form_Infra_Api
-Int Pos_GetLeft(Object this);
+Int Pos_GetLeft(Object o);
 
 
 
 
 Infra_Form_Infra_Api
-Bool Pos_SetLeft(Object this, Int value);
+Bool Pos_SetLeft(Object o, Int value);
 
 
 
 
 Infra_Form_Infra_Api
-Int Pos_GetUp(Object this);
+Int Pos_GetUp(Object o);
 
 
 
 
 Infra_Form_Infra_Api
-Bool Pos_SetUp(Object this, Int value);
+Bool Pos_SetUp(Object o, Int value);
 
 
 
@@ -88,25 +88,25 @@ InfraObjectApi(Infra_Form_Infra, Size)
 
 
 Infra_Form_Infra_Api
-Int Size_GetWidth(Object this);
+Int Size_GetWidth(Object o);
 
 
 
 
 Infra_Form_Infra_Api
-Bool Size_SetWidth(Object this, Int value);
+Bool Size_SetWidth(Object o, Int value);
 
 
 
 
 Infra_Form_Infra_Api
-Int Size_GetHeight(Object this);
+Int Size_GetHeight(Object o);
 
 
 
 
 Infra_Form_Infra_Api
-Bool Size_SetHeight(Object this, Int value);
+Bool Size_SetHeight(Object o, Int value);
 
 
 
@@ -118,22 +118,22 @@ InfraObjectApi(Infra_Form_Infra, Data)
 
 
 Infra_Form_Infra_Api
-Int Data_GetSize(Object this);
+Int Data_GetSize(Object o);
 
 
 
 
 Infra_Form_Infra_Api
-Bool Data_SetSize(Object this, Int value);
+Bool Data_SetSize(Object o, Int value);
 
 
 
 
 Infra_Form_Infra_Api
-Int Data_GetValue(Object this);
+Int Data_GetValue(Object o);
 
 
 
 
 Infra_Form_Infra_Api
-Bool Data_SetValue(Object this, Int value);
+Bool Data_SetValue(Object o, Int value);
