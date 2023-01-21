@@ -751,6 +751,13 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
+
+            Int handle;
+
+            handle = CastInt(hdc);
+
+
+
             Frame_DrawHandle_Method method;
 
             method = Frame_GetDrawHandleMethod(frame);
@@ -759,7 +766,7 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
             if (!(method == null))
             {
-                method(frame);
+                method(frame, handle);
             }
 
 

@@ -59,7 +59,7 @@ typedef Bool (*Frame_ControlHandle_Method)(Object frame, Int key, Int value);
 
 
 
-typedef Bool (*Frame_DrawHandle_Method)(Object frame);
+typedef Bool (*Frame_DrawHandle_Method)(Object frame, Int handle);
 
 
 
