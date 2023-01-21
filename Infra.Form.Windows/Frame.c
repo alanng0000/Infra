@@ -508,6 +508,32 @@ Bool Frame_Update(Object this)
 
 
 
+Int Frame_GetHandle(Object this)
+{
+    Frame* m;
+    
+    m = CastPointer(this);
+
+
+
+    HDC u;
+
+    u = m->Hdc;
+
+
+
+    Int o;
+
+    o = CastInt(u);
+
+
+    return o;
+}
+
+
+
+
+
 
 Frame_ControlHandle_Method Frame_GetControlHandleMethod(Object this)
 {
@@ -721,6 +747,25 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
             HDC hdc = Windows_BeginPaint(o, &ot);
+
+
+
+
+            Frame_DrawHandle_Method method;
+
+            method = Frame_GetDrawHandleMethod(frame);
+
+
+
+            if (!(method == null))
+            {
+                Int hdc;
+
+                hdc = Frame_GetHdc(frame);
+
+
+                method(frame, hdc);
+            }
 
 
 

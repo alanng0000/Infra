@@ -93,6 +93,13 @@ Bool Frame_SetDrawHandle(Object this, Int value);
 
 
 
+Infra_Form_Api
+Int Frame_GetHandle(Object this);
+
+
+
+
+
 
 Infra_Form_Api
 Object Frame_GetSize(Object this);
