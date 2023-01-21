@@ -9,9 +9,9 @@
 
 
 #ifdef Infra_Form_Infra_Module
-#define Infra_Form_Infra_Api __declspec(dllexport)
+#define Infra_Form_Infra_Api ExportApi
 #else
-#define Infra_Form_Infra_Api __declspec(dllimport)
+#define Infra_Form_Infra_Api ImportApi
 #endif
 
 
