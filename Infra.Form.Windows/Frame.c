@@ -789,6 +789,14 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
+
+            Object arg;
+
+            arg = Frame_GetDrawHandleArg(frame);
+
+
+
+
             Frame_DrawHandle_Method method;
 
             method = Frame_GetDrawHandleMethod(frame);
@@ -797,7 +805,7 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
             if (!(method == null))
             {
-                method(frame, handle);
+                method(frame, handle, arg);
             }
 
 
