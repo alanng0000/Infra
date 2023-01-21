@@ -99,6 +99,11 @@ Bool Frame_CopyString(WCHAR* result, Object string);
 
 
 
+Int Frame_GetHandle(Object this);
+
+
+
+
 
 Frame_ControlHandle_Method Frame_GetControlHandleMethod(Object this);
 

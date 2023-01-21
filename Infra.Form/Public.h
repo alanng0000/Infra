@@ -59,7 +59,7 @@ typedef Bool (*Frame_ControlHandle_Method)(Object frame, Int key, Int value);
 
 
 
-typedef Bool (*Frame_DrawHandle_Method)(Object frame, Int handle);
+typedef Bool (*Frame_DrawHandle_Method)(Object frame, Int handle, Object arg);
 
 
 
@@ -92,9 +92,14 @@ Bool Frame_SetDrawHandle(Object this, Int value);
 
 
 
+Infra_Form_Api
+Object Frame_GetDrawHandleArg(Object this);
+
+
+
 
 Infra_Form_Api
-Int Frame_GetHandle(Object this);
+Bool Frame_SetDrawHandleArg(Object this, Object value);
 
 
 
