@@ -598,6 +598,31 @@ HGDIOBJ Windows_SelectObject(HDC hdc, HGDIOBJ h)
 
 
 
+
+HGDIOBJ Windows_GetStockObject(int i)
+{
+    Start;
+
+
+    HGDIOBJ m = GetStockObject(i);
+
+
+    End;
+
+
+
+    Check(!(m == NULL));
+
+
+    HGDIOBJ ret = m;
+
+    return ret;
+}
+
+
+
+
+
 HDC Windows_BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint)
 {
     Start;
