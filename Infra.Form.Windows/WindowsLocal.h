@@ -112,6 +112,9 @@ HDC Windows_CreateCompatibleDC(HDC hdc);
 HGDIOBJ Windows_SelectObject(HDC hdc, HGDIOBJ h);
 
 
+HGDIOBJ Windows_GetStockObject(int i);
+
+
 HDC Windows_BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint);
 
 
