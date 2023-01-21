@@ -35,6 +35,9 @@ typedef struct
 
 
 
+    Object DrawHandleArg;
+
+
 
     Object Title;
 

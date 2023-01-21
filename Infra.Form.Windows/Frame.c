@@ -654,6 +654,37 @@ Bool Frame_SetDrawHandle(Object this, Int value)
 
 
 
+Object Frame_GetDrawHandleArg(Object this)
+{
+    Frame* m;
+    
+    m = CastPointer(this);
+
+
+    return m->DrawHandleArg;
+}
+
+
+
+
+
+Bool Frame_SetDrawHandleArg(Object this, Object value)
+{
+    Frame* m;
+    
+    m = CastPointer(this);
+
+
+    m->DrawHandleArg = value;
+
+
+    return true;
+}
+
+
+
+
+
 
 Object Frame_GetFrame(Int hwnd)
 {
