@@ -46,6 +46,14 @@ typedef unsigned int Int32;
 
 
 
+typedef long long SInt;
+
+
+
+
+
+
+
 #define true (1)
 
 
