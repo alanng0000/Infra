@@ -876,11 +876,6 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
         break;
 
 
-        case WM_ERASEBKGND:
-        handled = true;
-        break;
-
-
         case WM_DESTROY:
         {
             Windows_PostQuitMessage(0);
