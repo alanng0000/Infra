@@ -108,6 +108,10 @@ Frame_ControlHandle_Method Frame_GetControlHandleMethod(Object this);
 
 
 
+Frame_DrawHandle_Method Frame_GetDrawHandleMethod(Object this);
+
+
+
 
 
 Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam);

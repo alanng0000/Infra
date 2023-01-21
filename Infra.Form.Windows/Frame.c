@@ -799,7 +799,7 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
             if (!(method == null))
             {
-                method(frame, arg);
+                method(arg);
             }
 
 
