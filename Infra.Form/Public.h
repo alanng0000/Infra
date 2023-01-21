@@ -50,6 +50,8 @@ Bool Frame_SetVisible(Object o, Bool value);
 
 
 
+
+Infra_Form_Api
 Int Frame_GetHandle(Object this);
 
 
