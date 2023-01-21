@@ -3,10 +3,19 @@
 
 
 
+
+#define ExportApi __declspec(dllexport)
+
+
+#define ImportApi __declspec(dllimport)
+
+
+
+
 #ifdef Infra_Module
-#define Infra_Api __declspec(dllexport)
+#define Infra_Api ExportApi
 #else
-#define Infra_Api __declspec(dllimport)
+#define Infra_Api ImportApi
 #endif
 
 
