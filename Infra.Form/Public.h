@@ -50,6 +50,8 @@ Bool Frame_SetVisible(Object o, Bool value);
 
 
 
+Int Frame_GetHandle(Object this);
+
 
 
 
@@ -59,7 +61,7 @@ typedef Bool (*Frame_ControlHandle_Method)(Object frame, Int key, Int value);
 
 
 
-typedef Bool (*Frame_DrawHandle_Method)(Object frame, Int handle, Object arg);
+typedef Bool (*Frame_DrawHandle_Method)(Object frame, Object arg);
 
 
 

@@ -783,12 +783,6 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 
 
-            Int handle;
-
-            handle = CastInt(hdc);
-
-
-
 
             Object arg;
 
@@ -805,7 +799,7 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
             if (!(method == null))
             {
-                method(frame, handle, arg);
+                method(frame, arg);
             }
 
 
