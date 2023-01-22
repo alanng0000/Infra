@@ -10,7 +10,7 @@ SET OutFoldName=Out
 
 
 
-SET OutFold=..\..\%OutFoldName%
+SET OutFold=..\..\..\%OutFoldName%
 
 
 
