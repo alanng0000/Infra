@@ -1,4 +1,4 @@
 @echo off
 
 
-..\Out\Infra.Exe.dll.exe
+..\..\Out\Infra.Exe.dll.exe
