@@ -106,7 +106,7 @@ SETLOCAL
 
 
 
-copy "Infra.h" "..\%OutFoldName%\Infra.h" >nul
+copy "Infra.h" "..\..\%OutFoldName%\Infra.h" >nul
 
 
 
