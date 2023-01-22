@@ -17,7 +17,7 @@ SET Exe=%~5
 SET DefineModuleName=%Module:.=_%
 
 
-SET OutFoldPath=..\..\Out
+SET OutFoldPath=..\..\..\Out
 
 
 
