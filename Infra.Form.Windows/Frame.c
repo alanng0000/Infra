@@ -773,7 +773,7 @@ Bool Frame_EventHandle(Int* result, Int hwnd, Int32 uMsg, Int wParam, Int lParam
     Bool handled;
     
     handled = false;
-    
+
 
 
     Int ret;
@@ -890,14 +890,6 @@ Bool Frame_EventHandle(Int* result, Int hwnd, Int32 uMsg, Int wParam, Int lParam
             }
         }
         ret = 0;
-        handled = true;
-        break;
-
-
-        case WM_ERASEBKGND:
-        {
-        }
-        ret = 1;
         handled = true;
         break;
 
