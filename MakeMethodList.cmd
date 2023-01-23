@@ -9,7 +9,7 @@ goto :eof
 SETLOCAL
 SET Module=%~1
 SET Fold=%~2
-SET Imports=%~3
+SET Import=%~3
 SET Cpp=%~4
 SET Exe=%~5
 
@@ -59,7 +59,7 @@ CALL :CreateFold "%OutFoldPath%\%Module%"
 
 
 
-cl *.%Ext% /D %DefineModuleName%_Module /Fo%OutFoldPath%\%Module%\ /Fe: %OutFoldPath%\%BinaryName% /I %OutFoldPath% /W3 /O2 /link %Imports% %DllFlag%
+cl *.%Ext% /D %DefineModuleName%_Module /Fo%OutFoldPath%\%Module%\ /Fe: %OutFoldPath%\%BinaryName% /I %OutFoldPath% /W3 /O2 /link %Import% %DllFlag%
 
 
 
