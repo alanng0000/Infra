@@ -420,11 +420,6 @@ Bool FrameExecute()
 
 
 
-    Frame_SetVisible(frame, true);
-
-
-
-
     Frame_Execute(frame);
 
 
