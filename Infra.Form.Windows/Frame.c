@@ -39,11 +39,17 @@ Bool Frame_SetTitle(Object this, Object value)
 
 Bool Frame_Init(Object this)
 {
-    Frame* m = CastPointer(this);
+    Frame* m;
+    
+    m = CastPointer(this);
 
 
 
-    Object size = Size_New();
+
+    Object size;
+    
+    
+    size = Size_New();
 
 
 
