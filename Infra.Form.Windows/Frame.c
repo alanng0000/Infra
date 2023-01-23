@@ -768,9 +768,17 @@ Bool Frame_Execute(Object this)
 
 
 
-Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
+Bool Frame_EventHandle(Int* result, Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 {
-    Bool handled = false;
+    Bool handled;
+    
+    handled = false;
+    
+
+
+    Int ret;
+
+    ret = 0;
 
 
     switch (uMsg)
@@ -819,6 +827,7 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
             Windows_EndPaint(o, &ot);
         }
+        ret = 0;
         handled = true;
         break;
 
@@ -849,6 +858,7 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
                 method(frame, key, true);
             }
         }
+        ret = 0;
         handled = true;
         break;
 
@@ -879,6 +889,15 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
                 method(frame, key, false);
             }
         }
+        ret = 0;
+        handled = true;
+        break;
+
+
+        case WM_ERASEBKGND:
+        {
+        }
+        ret = 1;
         handled = true;
         break;
 
@@ -887,6 +906,7 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
         {
             Windows_PostQuitMessage(0);
         }
+        ret = 0;
         handled = true;
         break;
 
@@ -896,9 +916,15 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
     }
 
 
-    Bool ret = handled;
 
-    return ret;
+    if (handled)
+    {
+        *result = ret;
+    }
+
+
+
+    return handled;
 }
 
 
@@ -908,23 +934,37 @@ Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam)
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-    Int d = (Int)hwnd;
+    Int d;
+    
+    d = (Int)hwnd;
 
 
 
-    Bool handled = Frame_EventHandle(d, uMsg, wParam, lParam);
+    Int u;
+
+    u = 0;
 
 
 
-    LRESULT ret = 0;
+    Bool handled;
+    
+    handled = Frame_EventHandle(&u, d, uMsg, wParam, lParam);
+
+
+
+    LRESULT ret;
+    
+    ret = 0;
 
 
 
     if (handled)
     {
-        ret = 0;
+        ret = u;
     }
-    else
+
+
+    if (!handled)
     {
         ret = Windows_DefWindowProcW(hwnd, uMsg, wParam, lParam);
     }

@@ -114,7 +114,7 @@ Frame_DrawHandle_Method Frame_GetDrawHandleMethod(Object this);
 
 
 
-Bool Frame_EventHandle(Int hwnd, Int32 uMsg, Int wParam, Int lParam);
+Bool Frame_EventHandle(Int* result, Int hwnd, Int32 uMsg, Int wParam, Int lParam);
 
 
 
