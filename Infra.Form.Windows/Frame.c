@@ -128,7 +128,7 @@ Bool Frame_InitWindow(Object this)
     HINSTANCE hInstance = m->HInstance;
 
 
-    WCHAR* className  = L"Machine Window Class";
+    WCHAR* className  = L"Infra Window Class";
 
 
     WNDCLASSEXW wc = { 0 };
