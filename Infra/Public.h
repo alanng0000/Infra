@@ -88,7 +88,7 @@ typedef long long SInt;
 
 
 
-#define Constants_IntByteCount (sizeof(Int))
+#define Constant_IntByteCount (sizeof(Int))
 
 
 

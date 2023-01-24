@@ -1074,7 +1074,7 @@ Int Format_DigitCount(Int n)
 
 Int Format_HexIntLength(Object this)
 {
-    return Constants_IntByteCount * Constants_ByteHexDigitCount;
+    return Constant_IntByteCount * Constants_ByteHexDigitCount;
 }
 
 
@@ -1091,7 +1091,7 @@ Bool Format_HexInt(Object this, Int result, Int n)
     Int k = n;
 
 
-    Int byteCount = Constants_IntByteCount;
+    Int byteCount = Constant_IntByteCount;
 
 
 
